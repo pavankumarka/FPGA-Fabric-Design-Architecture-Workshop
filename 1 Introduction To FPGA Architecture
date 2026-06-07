@@ -1,0 +1,18 @@
+
+#Day1 Agenda:
+1. FGPA Introduction
+2. FGPA Design Methodologies
+3. Advantages
+4. Architecture
+5. FPGA Programming (Verilog, Vivado)
+
+##1. FPGA Introduction
+###History of programmable logic
+1. Types of programmable logic devices:
+  - PLA: Progammable logic arrays
+  - CPLD: Complex programmable logic device
+  - FPGA: Field Programmable Gate Array
+The idea behind all these programmable gate arrays is to
+   - Generate customiable hardware.
+  - study the effects of area, speed, power of the digital circuits.
+
