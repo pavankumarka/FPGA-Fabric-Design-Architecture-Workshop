@@ -1,6 +1,6 @@
 
 # Day1 Agenda:
-1. [FGPA Introduction](## 1. FPGA Introduction)
+1. [FGPA Introduction](#1-fpga-introduction)
 2. FGPA Design Methodologies
 3. Advantages
 4. Architecture
