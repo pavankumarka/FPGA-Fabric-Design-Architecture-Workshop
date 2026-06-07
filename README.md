@@ -9,7 +9,7 @@ Credits:
 1. Kunal Ghosh and VSD Team.
 
 In this course,
-1. On day1 we cover, [Introduction to FPGA}()
+1. On day1 we cover, [Introduction to FPGA}(https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Introduction%20To%20FPGA%20Architecture)
 2. on day2 we cover, []()
 3. on day3 we cover, []()
 4. on day4 we cover, []()
