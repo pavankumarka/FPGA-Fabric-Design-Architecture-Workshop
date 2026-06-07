@@ -1,14 +1,14 @@
 
-#Day1 Agenda:
-1. FGPA Introduction
+# Day1 Agenda:
+1. [FGPA Introduction](## 1. FPGA Introduction)
 2. FGPA Design Methodologies
 3. Advantages
 4. Architecture
 5. FPGA Programming (Verilog, Vivado)
 
-##1. FPGA Introduction
+## 1. FPGA Introduction
 
-###History of programmable logic
+### 1.1 History of programmable logic
 1. Types of programmable logic devices:
   - PLA: Progammable logic arrays
         - has few programmable devices
@@ -21,7 +21,7 @@ The idea behind all these programmable gate arrays is to
    - Generate customiable hardware, i.e program and reprogram the device.
    - study the effects of area, speed, power of the digital circuits.
 
-###Basys-3: FPGA board used in this workshop: 
+#### Basys-3: FPGA board used in this workshop: 
 
 ![Basys](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/pictures/1_FPGA_Basys.PNG)
 
