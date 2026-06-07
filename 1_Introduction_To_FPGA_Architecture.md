@@ -7,6 +7,7 @@
 5. FPGA Programming (Verilog, Vivado)
 
 ##1. FPGA Introduction
+
 ###History of programmable logic
 1. Types of programmable logic devices:
   - PLA: Progammable logic arrays
