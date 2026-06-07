@@ -19,5 +19,7 @@ The idea behind all these programmable gate arrays is to
    - Generate customiable hardware, i.e program and reprogram the device.
    - study the effects of area, speed, power of the digital circuits.
 
-###Basys-3: FPGA board used in this workshop: ![Basys](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/pictures/1_FPGA_Basys.PNG)
+###Basys-3: FPGA board used in this workshop: 
+
+![Basys](![Basys](https://raw.githubusercontent.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/main/pictures/1_FPGA_Basys.PNG))
 
