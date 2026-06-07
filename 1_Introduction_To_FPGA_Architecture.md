@@ -15,6 +15,7 @@
         - has less programmable devices compared to FPGA
   - FPGA: Field Programmable Gate Array
         - has more number of programmable devices compared to CPLD.
+
 The idea behind all these programmable gate arrays is to
    - Generate customiable hardware, i.e program and reprogram the device.
    - study the effects of area, speed, power of the digital circuits.
