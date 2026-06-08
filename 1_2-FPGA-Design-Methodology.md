@@ -1073,8 +1073,10 @@ Constraints file, under sources will look like below,
 
 <img width="520" height="406" alt="image" src="https://github.com/user-attachments/assets/8074dbef-d43c-4d6f-b0f4-a44dcf0eacbd" />
 
-Setup-Time and Hold-Time are important timing constraints.
-
 1. Setup-time: data has to be stable for certain amount of time before the clock edge, called setup-time (T-setup time).
 2. Hold-time: data has to be stable for certain amount of time AFTER the clock edge, called HOLD-time (T-hold time).
+
+Let us take the simple design as in the picture above as an example to derive Timing constraints.
+ 
+ 1. Two Flip-Flops (D and Q2) are "Launch Flip-Flop" and "Capture Flip-flop" with logic gates in-between, both the flip-flops are connected with clock.
 
