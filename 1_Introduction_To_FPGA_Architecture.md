@@ -1,7 +1,7 @@
 
 # Day1 Agenda:
 1. [FGPA Introduction](#1-fpga-introduction)
-2. FGPA Design Methodologies
+2. FPGA Design Methodologies
 3. Advantages
 4. Architecture
 5. FPGA Programming (Verilog, Vivado)
@@ -25,3 +25,9 @@ The idea behind all these programmable gate arrays is to
 
 ![Basys](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/pictures/1_FPGA_Basys.PNG)
 
+- A "Field Programmable Gate Array" (FPGA) is an integrated circuit designed to be configured by a designer after manufacturing.
+- FPGA configuration is specified using a Hardware Description Language (HDL) such as Verilog or VHDL, similar to an ASIC (Application-Specific Integrated Circuit).
+- Logic design in an FPGA is different from an ASIC:
+  - Uses Look-Up Tables (LUTs)
+  - Uses Flip-Flops (FFs)
+  - Uses Configurable Logic Blocks (CLBs)
