@@ -1,6 +1,6 @@
-**FPGA Fabric Design Architect roadmap**:
+# **FPGA Fabric Design Architect roadmap**:
 
-# FPGA User → FPGA Architect → SOFA Contributor → Custom RISC-V FPGA Architect
+## FPGA User → FPGA Architect → SOFA Contributor → Custom RISC-V FPGA Architect
 
 This roadmap is ordered so that each stage builds on the previous one.
 
