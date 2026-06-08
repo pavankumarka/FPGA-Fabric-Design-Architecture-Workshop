@@ -1,5 +1,3 @@
-Back to [MAIN PAGE](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/README.md)
-
 **FPGA Fabric Design Architect roadmap**:
 
 # FPGA User → FPGA Architect → SOFA Contributor → Custom RISC-V FPGA Architect
