@@ -6,16 +6,17 @@ What are the Goals of a FPGA Fabric design Architect?
 
 - The architect is not primarily building applications on an FPGA; they are designing the FPGA itself.
 
-## [FPGA-Fabric-Design-Architecture-Workshop](https://www.vlsisystemdesign.com/fpga/)
-FPGA Fabric Design Architecture Workshop by [VSD](https://www.vlsisystemdesign.com/)
-
-This workshop is a 5days paid cloud based program where we design, verify and analyze application specific FPGA, the lectures and lab access is private to individual. 
-1. [Lecture access](https://vsdiat.vlsisystemdesign.com/sign-in) 
-2. [lab access](https://www.remotespark.com/view/rdpdirect.html?server=159.223.55.198&port=3389&user=&pwd=&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&mapClipboard=on&fullScreen=Full%20screen&server_bpp=16&playSound=0&soundPref=0&mapClipboard=on&mapPrinter=on&mapDisk=on&startProgram=noapp&smoothfont=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=www.remotespark.com)
-
 ## What topics do we need to cover as a [FPGA Fabric Design Architect?](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/FPGA-fabric-architect-goals.md)
 
 This progression takes you from FPGA user → FPGA Designer → FPGA architect → RISCV design → SOFA contributor → custom RISC-V FPGA
+
+## [FPGA-Fabric-Design-Architecture-Workshop](https://www.vlsisystemdesign.com/fpga/)
+FPGA Fabric Design Architecture Workshop by [VSD](https://www.vlsisystemdesign.com/)
+
+This workshop is a 5days paid cloud based program where we design, verify and analyze application specific FPGA, the lectures and lab access is paid and private to individual. 
+1. [Lecture access](https://vsdiat.vlsisystemdesign.com/sign-in) 
+2. [lab access](https://www.remotespark.com/view/rdpdirect.html?server=159.223.55.198&port=3389&user=&pwd=&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&mapClipboard=on&fullScreen=Full%20screen&server_bpp=16&playSound=0&soundPref=0&mapClipboard=on&mapPrinter=on&mapDisk=on&startProgram=noapp&smoothfont=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=www.remotespark.com)
+
 
 ## [Course Agenda](https://www.vlsisystemdesign.com/fpga/) 
 
@@ -30,4 +31,4 @@ To conclude workshop, we learnt how to use, plan, design, verify, adopt and anal
 
 ## How does the FPGA Fabric design workshop learnings align with my present skills? [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
 
-Credits - VSD and Team
+Credits - [VSD and Team](https://www.vlsisystemdesign.com/fpga/)
