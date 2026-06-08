@@ -1,7 +1,7 @@
 
 # Day1 Agenda:
 1. [FGPA Introduction](#1-fpga-introduction)
-2. [FPGA Design Methodologies](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_2-FPGA-Design-Methodology)
+2. [FPGA Design Methodologies](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_2-FPGA-Design-Methodology.md)
 3. Advantages
 4. Architecture
 5. FPGA Programming (Verilog, Vivado)
@@ -1066,4 +1066,4 @@ This is how an interconnect and CLB come together to make the FPGA work.
 
 This workshop uses Verilog HDL -> Synthesizable bitstream -> program FPGA.
 
-Next Topic: 2. [FPGA Design methodology](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_2-FPGA-Design-Methodology)
+Next Topic: 2. [FPGA Design methodology](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_2-FPGA-Design-Methodology.md)
