@@ -965,3 +965,93 @@ When an ALU is synthesized:
 
 The **bitstream programs the distributed configuration SRAM**, which configures every LUT, routing switch, MUX, FF, BRAM, DSP, and IOB to transform the generic FPGA fabric into the desired ALU or complete RISC-V processor.
 
+
+## LUT explaination using 2X1 MUX
+
+<img width="549" height="444" alt="image" src="https://github.com/user-attachments/assets/b00330a9-38b2-4c63-865b-8b2df7305887" />
+
+How does a LUT look for a 2X1 mux on an FPGA?
+
+From the diagram, we can see Look-up table with N-inputs can be used to implement any combinational function of N inputs.
+
+To trace the diagram in-backwards or other way round, consider input S first, then A, followed by B, then output Z. 
+
+each line is expanded into wider view.
+
+A 2X1 mux will have 2 inputs, a select line and an output.
+
+Above diagram is a connection of multiple Multiplexers. a 2x1 mux uses 2^3 - 1 2x1 mux
+
+| Variables | Number of 2:1 MUXes |
+| --------- | ------------------- |
+| 1         | (2^1-1=1)           |
+| 2         | (2^2-1=3)           |
+| 3         | (2^3-1=7)           |
+| 4         | (2^4-1=15)          |
+| 6         | (2^6-1=63)          |
+
+Internally it can be viewed as:
+          MUX
+         /   \
+       MUX   MUX
+      / \    / \
+    MUX MUX MUX MUX
+
+Number of 2:1 MUXes:
+
+Level 1 : 4
+Level 2 : 2
+Level 3 : 1
+----------------
+Total   : 7
+
+4+2+1=7=2^3−1
+
+Eg2: 4-Input LUT
+
+Stores:
+
+2^4 = 16
+
+configuration bits.
+
+MUX tree:
+
+Level 1 : 8
+Level 2 : 4
+Level 3 : 2
+Level 4 : 1
+----------------
+Total   : 15
+8+4+2+1=15=2^4-1 
+
+### FPGA Architect View
+A K-LUT is often modeled as:
+- 2^K SRAM configuration bits
+- 2^(K−1) 2:1 multiplexers
+
+For heigher bits: 
+
+| LUT Size | SRAM Bits | 2:1 MUXes |
+| -------- | --------- | --------- |
+| 4-LUT    | 16        | 15        |
+| 5-LUT    | 32        | 31        |
+| 6-LUT    | 64        | 63        |
+
+## How Interconnects play the role in FPGA Programming.
+
+<img width="709" height="524" alt="image" src="https://github.com/user-attachments/assets/4f2be055-b71f-484d-b04b-0ba682867fca" />
+
+See F1 and F2 work.
+
+  - 2 inputs x1 and x2 are the interconnects connected to F1 inside CLB that has LUT.
+  
+  - intermediate output F1 = x1 + x2 is connected to one of the interconnect.
+  
+  - x3 is drawn from one more interconnect (track the red line drawn over black )
+  
+  - F1 and x3 is connected to next CLB which hS LUT.
+  
+  - F2 is the final output that has F1 + x3 = x1 + x2 + x3.
+
+This is how an interconnect and CLB come together to make the FPGA  work. 
