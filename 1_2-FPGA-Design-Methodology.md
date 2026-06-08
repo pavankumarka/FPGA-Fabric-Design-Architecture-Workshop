@@ -1005,7 +1005,7 @@ The counter:
        endmodule
 
 
-# Run Behavioral Simulation
+## Run Behavioral Simulation
 
 Behavioral simulation was performed in Vivado simulator (Run all) to verify the functionality of the counter before synthesis.
 
@@ -1018,12 +1018,12 @@ The waveform confirmed:
 <img width="1569" height="721" alt="image" src="https://github.com/user-attachments/assets/d0e2a758-9c7a-4f46-9706-5b406c294802" />
 
 
-## Show Console output:
+### Show Console output:
 
 <img width="790" height="549" alt="image" src="https://github.com/user-attachments/assets/0ba3fda4-66b0-4a1e-83d8-994339b440c5" />
 
 
-## Run Eloborated design:
+### Run Eloborated design:
 
 Binds few
 - modules in the design
@@ -1033,7 +1033,7 @@ Binds few
 - Register structure.
 - Signal flow.
 
-### Default view:
+#### Default view:
 
 <img width="1572" height="754" alt="image" src="https://github.com/user-attachments/assets/585d2dac-5108-4f18-a575-fc61e9170bef" />
 
@@ -1047,9 +1047,9 @@ Click on I/O pins to conifgure (in later stage of the project)
 
 <img width="1562" height="746" alt="image" src="https://github.com/user-attachments/assets/ec0d1e7a-1b51-44b7-91c6-60e5318d7a5b" />
 
-### Ways to find pin names:
+#### Ways to find pin names:
 
-1. On the FPGA, the names of the pins will be mentioned, which can be used.
+1. On the FPGA PCB board, the names of the pins next to the component will be mentioned, which names can be used.
 
 2. If you do not know the pins: Refer [Basys3 FPGA schematic for pin diagram:] (https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3-sch-public-rev-d.pdf) .
 
@@ -1066,6 +1066,15 @@ We will see how to map these switches to FPGA board for reset, as well as Virtua
 - After I/O mapping, save it as "constraints", the view looks like below,
 <img width="1810" height="788" alt="image" src="https://github.com/user-attachments/assets/db32dff0-c9a4-4997-bb4e-608ac708b6e1" />
 
-Constraints file, under sources will lokk like below,
+Constraints file, under sources will look like below,
 <img width="1861" height="790" alt="image" src="https://github.com/user-attachments/assets/de0b367a-febf-4373-92b4-0f43e253348e" />
+
+### Timing Constraints:
+
+<img width="520" height="406" alt="image" src="https://github.com/user-attachments/assets/8074dbef-d43c-4d6f-b0f4-a44dcf0eacbd" />
+
+Setup-Time and Hold-Time are important timing constraints.
+
+1. Setup-time: data has to be stable for certain amount of time before the clock edge, called setup-time (T-setup time).
+2. Hold-time: data has to be stable for certain amount of time AFTER the clock edge, called HOLD-time (T-hold time).
 
