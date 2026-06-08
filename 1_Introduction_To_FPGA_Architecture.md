@@ -342,6 +342,24 @@ Understanding FPGA applications is important because **FPGA Fabric Architects de
 
 An **FPGA (Field Programmable Gate Array)** is a programmable digital device consisting of configurable logic resources, programmable interconnects, memory blocks, DSP blocks, clock networks, I/O blocks, and configuration memory. After synthesis and implementation, a **bitstream** configures these resources to implement the desired hardware circuit.
 
++---------------------------------------------------+
+| IOB  IOB  IOB  IOB  IOB  IOB  IOB  IOB           |
++---------------------------------------------------+
+
+| CLB | ROUTE | CLB | BRAM | CLB | DSP | CLB |
+
+| ROUTE | ROUTE | ROUTE | ROUTE | ROUTE |
+
+| CLB | CLB | CLB | CLB | CLB | CLB | CLB |
+
+| ROUTE | ROUTE | ROUTE | ROUTE | ROUTE |
+
+| CLB | DSP | CLB | BRAM | CLB | CLB | CLB |
+
++---------------------------------------------------+
+| IOB  IOB  IOB  IOB  IOB  IOB  IOB  IOB           |
++---------------------------------------------------+
+
 ---
 
 ## Complete FPGA Architecture
@@ -899,6 +917,18 @@ RISC-V CPU
 ├── Instruction Decoder
 └── Program Counter
 ```
+
+For a RISC-V ALU: Instructions used
+
+ADD
+SUB
+AND
+OR
+XOR
+SLT
+SLL
+SRL
+SRA
 
 FPGA resources used:
 
