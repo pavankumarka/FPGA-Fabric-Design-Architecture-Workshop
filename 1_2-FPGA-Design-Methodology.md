@@ -496,6 +496,359 @@ Register -> FFs (if added)
 
 <img width="680" height="598" alt="image" src="https://github.com/user-attachments/assets/6b2d9a7b-f756-4ca8-a396-9769beeaf480" />
 
-
 All of these correspond to real FPGA hardware resources.
+
+## Basys 3 FPGA Board – Key Components
+
+The board shown is the **Basys 3**, built around the **Artix-7 XC7A35T** FPGA.
+
+## Main Components
+
+### 1. Power Good LED
+
+* Indicates the board is powered correctly.
+* ON = power is available.
+
+---
+
+### 2. PMOD Connectors (2×)
+
+* General-purpose expansion ports.
+* Used to connect:
+
+  * Sensors
+  * LCDs
+  * ADC/DAC modules
+  * Custom hardware
+
+---
+
+### 3. Four-Digit Seven-Segment Display
+
+```text
+8888
+```
+
+Used for:
+
+* Counters
+* Timers
+* Numeric displays
+* ALU output display
+
+---
+
+### 4. FPGA Device (Artix-7)
+
+The largest IC on the board.
+
+Contains:
+
+```text
+CLBs
+LUTs
+Flip-Flops
+Carry Chains
+BRAM
+DSP
+Clock Resources
+IO Blocks
+```
+
+This is where your Verilog design is implemented.
+
+---
+
+### 5. Slide Switches (16)
+
+```text
+SW15 SW14 ... SW1 SW0
+```
+
+Used as user inputs.
+
+Examples:
+
+* ALU operands
+* Mode selection
+* Enable signals
+
+For an ALU:
+
+```text
+SW[3:0]  = A
+SW[7:4]  = B
+```
+
+---
+
+### 6. User LEDs (16)
+
+```text
+LED15 ... LED1 LED0
+```
+
+Used to display outputs.
+
+Example:
+
+```text
+ALU Result → LEDs
+```
+
+ON = Logic 1
+
+OFF = Logic 0
+
+---
+
+### 7. Push Buttons (5)
+
+Buttons:
+
+```text
+BTNU (Up)
+BTND (Down)
+BTNL (Left)
+BTNR (Right)
+BTNC (Center)
+```
+
+Common uses:
+
+* Reset
+* Start
+* Increment counter
+* Change ALU operation
+
+Example:
+
+```text
+BTNC = Reset
+```
+
+---
+
+### 8. DONE LED
+
+Indicates FPGA programming status.
+
+```text
+ON → Bitstream loaded successfully
+OFF → FPGA not configured
+```
+
+---
+
+### 9. FPGA Reset Button
+
+Resets the FPGA configuration logic.
+
+Used when:
+
+* Reloading a design
+* Recovering from errors
+
+---
+
+### 10. USB Host Port
+
+Used for:
+
+* USB keyboard
+* USB mouse
+* External USB devices
+
+---
+
+### 11. USB-HID Port
+
+Provides USB device functionality.
+
+Used in advanced projects.
+
+---
+
+### 12. VGA Connector
+
+Used for video output.
+
+Example resolutions:
+
+```text
+640x480
+800x600
+```
+
+Projects:
+
+* VGA games
+* Graphics
+* Text display
+
+---
+
+### 13. USB-JTAG/UART Port
+
+Most important connector for beginners.
+
+Used for:
+
+### Programming FPGA
+
+```text
+Vivado
+   ↓
+Bitstream
+   ↓
+USB-JTAG
+   ↓
+FPGA
+```
+
+### Serial Communication
+
+```text
+FPGA ↔ UART ↔ PC
+```
+
+---
+
+### 14. External Power Connector
+
+Allows powering the board without USB.
+
+Typically:
+
+```text
+5V DC
+```
+
+---
+
+### 15. Power Switch
+
+Turns board power ON/OFF.
+
+---
+
+### 16. System Clock Oscillator
+
+Provides the FPGA clock.
+
+Basys 3:
+
+```text
+100 MHz Clock
+```
+
+Used by:
+
+```verilog
+always @(posedge clk)
+```
+
+---
+
+# ALU Example on Basys 3
+
+Suppose you implement:
+
+```verilog
+assign y = a + b;
+```
+
+### Inputs
+
+```text
+SW[3:0]  -> A
+SW[7:4]  -> B
+```
+
+### Operation Select
+
+```text
+BTNU -> ADD
+BTND -> SUB
+BTNL -> AND
+BTNR -> OR
+```
+
+### Outputs
+
+```text
+LED[3:0] -> Result
+```
+
+or
+
+```text
+7-Segment Display -> Result
+```
+
+---
+
+# Mapping to FPGA Resources
+
+```text
+Slide Switches
+      │
+      ▼
+    IOBs
+      │
+      ▼
+ Routing Network
+      │
+      ▼
+     CLB
+ ┌──────────┐
+ │ LUTs     │
+ │ Carry    │
+ │ FFs      │
+ └──────────┘
+      │
+      ▼
+ Routing Network
+      │
+      ▼
+    IOBs
+      │
+      ▼
+ LEDs / 7-Segment
+```
+
+This makes the Basys 3 an excellent board for learning the complete flow:
+
+```text
+Verilog
+   ↓
+Simulation
+   ↓
+Synthesis
+   ↓
+Place & Route
+   ↓
+Bitstream
+   ↓
+Basys 3 FPGA
+   ↓
+LEDs / Display / VGA / UART
+```
+
+## Software links:
+
+<img width="731" height="513" alt="image" src="https://github.com/user-attachments/assets/f543e671-70af-49f9-b35f-0119c95d1157" />
+
+## Types of using FPGA control:
+
+1. Local Access.
+2. Remote Access.
+   - Virtual I/O on FPGA Board.
+   - Virtual I/O on Integrated Logic Analyzer.
+
+in either case (1) and (2.1) the FPGA has to be connected to the system, in this workshop videos we cover both. But practically for Analysis/simulation purpose, we will use (2.2) remote access ILA approach, that will enable us an virtual reset for the architecture analysis we target using ILA (Integrated Logic Analyzer).
+   
+<img width="689" height="533" alt="image" src="https://github.com/user-attachments/assets/0534d403-5d1b-402b-859a-1518c11fa5c9" />
+
+
 
