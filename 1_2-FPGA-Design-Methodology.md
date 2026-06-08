@@ -857,5 +857,156 @@ Log into Lab session, open command prompt and run "vivado &" (without double quo
 
 A 4-bit up counter is implemented in Verilog HDL.
 
+The counter:
+- Increments on every positive edge of clock
+- Resets when reset signal is active and when max count reached (15  = 0x0F)
+- Displays waveform output
+
+## up-counter Verilog design Code:
+        
+        `timescale 1ns / 1ps
+        //////////////////////////////////////////////////////////////////////////////////
+        // Company: 
+        // Engineer: 
+        // 
+        // Create Date: 08.06.2026 08:33:11
+        // Design Name: 
+        // Module Name: counter_clk_div
+        // Project Name: 
+        // Target Devices: 
+        // Tool Versions: 
+        // Description: 
+        // 
+        // Dependencies: 
+        // 
+        // Revision:
+        // Revision 0.01 - File Created
+        // Additional Comments:
+        // 
+        //////////////////////////////////////////////////////////////////////////////////
+        
+        module counter_clk_div(
+            input  wire clk,
+            input  wire rst,
+            output reg [3:0] counter_out
+        );
+        
+        reg div_clk;
+        reg [25:0] delay_count;
+        
+        // Clock Divider
+        always @(posedge clk or posedge rst) begin
+            if (rst) begin
+                delay_count <= 26'd0;
+                div_clk     <= 1'b0;
+            end
+            else begin
+        
+                // Simulation:
+                if (delay_count == 26'd5)
+        
+                // Basys3 100MHz -> 1Hz:
+                // if (delay_count == 26'd49_999_999)
+        
+                begin
+                    delay_count <= 26'd0;
+                    div_clk     <= ~div_clk;
+                end
+                else begin
+                    delay_count <= delay_count + 1'b1;
+                end
+            end
+        end
+        
+        // 4-bit Counter
+        always @(posedge div_clk or posedge rst) begin
+            if (rst)
+                counter_out <= 4'd0;
+            else
+                counter_out <= counter_out + 1'b1;
+        end
+        
+        endmodule
+
+## up-counter Verilog test bench code:
+
+       `timescale 1ns / 1ps
+       //////////////////////////////////////////////////////////////////////////////////
+       // Company: 
+       // Engineer: 
+       // 
+       // Create Date: 08.06.2026 08:35:49
+       // Design Name: 
+       // Module Name: counter_clk_div_tb
+       // Project Name: 
+       // Target Devices: 
+       // Tool Versions: 
+       // Description: 
+       // 
+       // Dependencies: 
+       // 
+       // Revision:
+       // Revision 0.01 - File Created
+       // Additional Comments:
+       // 
+       //////////////////////////////////////////////////////////////////////////////////
+       
+       
+       `timescale 1ns/1ps
+       
+       module counter_clk_div_tb;
+       
+       reg clk;
+       reg rst;
+       wire [3:0] counter_out;
+       
+       // DUT
+       counter_clk_div dut (
+           .clk(clk),
+           .rst(rst),
+           .counter_out(counter_out)
+       );
+       
+       // 100 MHz Clock
+       initial begin
+           clk = 1'b0;
+           forever #5 clk = ~clk;
+       end
+       
+       // Test Sequence
+       initial begin
+       
+           rst = 1'b1;
+           #20;
+       
+           rst = 1'b0;
+       
+           // Run long enough to see multiple counts
+           #5000;
+       
+           $finish;
+       end
+       
+       // Console Output
+       initial begin
+       
+           $display("--------------------------------------------");
+           $display(" Time(ns) | Counter | Hex ");
+           $display("--------------------------------------------");
+       
+           $monitor("%8t | %2d | 0x%h",
+                     $time,
+                     counter_out,
+                     counter_out);
+       end
+       
+       endmodule
+
+## Simulation:
+
+<img width="1569" height="721" alt="image" src="https://github.com/user-attachments/assets/d0e2a758-9c7a-4f46-9706-5b406c294802" />
 
 
+## Console output:
+
+<img width="790" height="549" alt="image" src="https://github.com/user-attachments/assets/0ba3fda4-66b0-4a1e-83d8-994339b440c5" />
