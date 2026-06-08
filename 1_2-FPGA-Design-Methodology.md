@@ -1039,7 +1039,7 @@ Binds few
 
 ### IO planning:
 
-<img width="1605" height="764" alt="image" src="https://github.com/user-attachments/assets/e8cc6f8a-f1e0-4ba1-be48-2eb24c42e66b" />
+<img width="785" height="354" alt="image" src="https://github.com/user-attachments/assets/68b1b639-3738-46e2-b02e-066f91e0ad99" />
 
 Manuvering on each I/O pin gives details.
 
@@ -1047,5 +1047,20 @@ Click on I/O pins to conifgure (in later stage of the project)
 
 <img width="1562" height="746" alt="image" src="https://github.com/user-attachments/assets/ec0d1e7a-1b51-44b7-91c6-60e5318d7a5b" />
 
-Refer [Basys3 FPGA schematic for pin diagram:] (https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3-sch-public-rev-d.pdf) 
+### Ways to find pin names:
+
+1. On the FPGA, the names of the pins will be mentioned, which can be used.
+
+2. If you do not know the pins: Refer [Basys3 FPGA schematic for pin diagram:] (https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3-sch-public-rev-d.pdf) .
+
+1. Clock mapping (W5) 
+
+<img width="1123" height="892" alt="image" src="https://github.com/user-attachments/assets/50058f63-64b5-479d-afa6-2b1cafb9ec86" />
+
+2. LED mapping -> follow L1, L2, L3 in pdf and so on.
+
+3. Switches are mapped as SW0, SW1, SW2, SW3 and so on.
+
+We will see how to map these switches to FPGA board for reset, as well as Virtual I/O reset to the FPGA which is unique feature Vivado will enable to remotely toggle reset (if the board is connected to the remote/ cloud PC)
+
 
