@@ -1005,7 +1005,7 @@ The counter:
        endmodule
 
 
-# Behavioral Simulation
+# Run Behavioral Simulation
 
 Behavioral simulation was performed in Vivado simulator (Run all) to verify the functionality of the counter before synthesis.
 
@@ -1018,6 +1018,34 @@ The waveform confirmed:
 <img width="1569" height="721" alt="image" src="https://github.com/user-attachments/assets/d0e2a758-9c7a-4f46-9706-5b406c294802" />
 
 
-## Console output:
+## Show Console output:
 
 <img width="790" height="549" alt="image" src="https://github.com/user-attachments/assets/0ba3fda4-66b0-4a1e-83d8-994339b440c5" />
+
+
+## Run Eloborated design:
+
+Binds few
+- modules in the design
+- module heirarchy.
+- Establish Net connectivity.
+- Logical connectivity.
+- Register structure.
+- Signal flow.
+
+### Default view:
+
+<img width="1572" height="754" alt="image" src="https://github.com/user-attachments/assets/585d2dac-5108-4f18-a575-fc61e9170bef" />
+
+### IO planning:
+
+<img width="1605" height="764" alt="image" src="https://github.com/user-attachments/assets/e8cc6f8a-f1e0-4ba1-be48-2eb24c42e66b" />
+
+Manuvering on each I/O pin gives details.
+
+Click on I/O pins to conifgure (in later stage of the project)
+
+<img width="1562" height="746" alt="image" src="https://github.com/user-attachments/assets/ec0d1e7a-1b51-44b7-91c6-60e5318d7a5b" />
+
+Refer [Basys3 FPGA schematic for pin diagram:] (https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3-sch-public-rev-d.pdf) 
+
