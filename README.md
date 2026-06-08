@@ -7,7 +7,7 @@ This workshop is a 5days paid cloud based program where we design, verify and an
 
 ## What topics do we need to cover as a [FPGA Fabric Design Architect?](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/0_FPGA_fabric_architect_goals.md)
 
-This progression takes you from FPGA user → FPGA architect → SOFA contributor → custom RISC-V FPGA
+This progression takes you from FPGA user → FPGA Designer → FPGA architect → SOFA contributor → custom RISC-V FPGA
 
 
 ## Agenda Course
