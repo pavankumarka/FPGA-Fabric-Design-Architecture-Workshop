@@ -6,7 +6,7 @@ What are the Goals of a FPGA Fabric design Architect?
 
 - The architect is not primarily building applications on an FPGA; they are designing the FPGA itself.
 
-## What topics do we need to cover as a [FPGA Fabric Design Architect?](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/FPGA-fabric-architect-goals.md)
+### What topics do we need to cover as a [FPGA Fabric Design Architect?](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/FPGA-fabric-architect-goals.md)
 
 This progression takes you from FPGA user → FPGA Designer → FPGA architect → RISCV design → [SOFA](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/SOFA.md) contributor → custom RISC-V FPGA
 
@@ -27,6 +27,6 @@ In this 5days workshop we cover.
 
 To conclude workshop, we learnt how to use, plan, design, verify, adopt and analyze **Application specific FPGA**.
 
-## How does the FPGA Fabric design workshop learnings align with my present skills? [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
+### How does the FPGA Fabric design workshop learnings align with my present skills? [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
 
 Credits - [VSD and Team](https://www.vlsisystemdesign.com/)
