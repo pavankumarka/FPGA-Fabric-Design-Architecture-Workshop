@@ -21,4 +21,4 @@ In this 5days workshop we cover.
 
 To conclude workshop, we learnt how to use, plan, design, verify, adopt and analyze **Application specific FPGA**.
 
-## How the FPGA Fabric design workshop learnings align with my skills [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
+## How does the FPGA Fabric design workshop learnings align with my present skills [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
