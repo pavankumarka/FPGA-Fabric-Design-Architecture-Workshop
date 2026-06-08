@@ -855,6 +855,8 @@ in either case (1) and (2.1) the FPGA has to be connected to the system, in this
 
 Log into Lab session, open command prompt and run "vivado &" (without double quotes)
 
+Use the UI option to create new project, add FPGA, add design and test bench files and simulate to obtain behavioral model of the 4-bit up counter.
+
 A 4-bit up counter is implemented in Verilog HDL.
 
 The counter:
@@ -1002,7 +1004,16 @@ The counter:
        
        endmodule
 
-## Simulation:
+
+# Behavioral Simulation
+
+Behavioral simulation was performed in Vivado simulator (Run all) to verify the functionality of the counter before synthesis.
+
+The waveform confirmed:
+- Proper clock toggling
+- Counter increment operation
+- Reset functionality
+
 
 <img width="1569" height="721" alt="image" src="https://github.com/user-attachments/assets/d0e2a758-9c7a-4f46-9706-5b406c294802" />
 
