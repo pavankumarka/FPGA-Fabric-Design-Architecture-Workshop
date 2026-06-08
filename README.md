@@ -10,7 +10,7 @@ This workshop is a 5days paid cloud based program where we design, verify and an
 This progression takes you from FPGA user → FPGA Designer → FPGA architect → SOFA contributor → custom RISC-V FPGA
 
 
-## Agenda Course
+## Course Agenda 
 
 In this 5days workshop we cover.
 1. [Introduction to FPGA, Vivado usage and Virtual Input/Output configurations](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_Introduction_To_FPGA_Architecture.md)
