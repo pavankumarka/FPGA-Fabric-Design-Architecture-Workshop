@@ -851,4 +851,11 @@ in either case (1) and (2.1) the FPGA has to be connected to the system, in this
 <img width="689" height="533" alt="image" src="https://github.com/user-attachments/assets/0534d403-5d1b-402b-859a-1518c11fa5c9" />
 
 
+# Vivado Counter Design
+
+Log into Lab session, open command prompt and run "vivado &" (without double quotes)
+
+A 4-bit up counter is implemented in Verilog HDL.
+
+
 
