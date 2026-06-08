@@ -339,6 +339,243 @@ Understanding FPGA applications is important because **FPGA Fabric Architects de
 
 <img width="533" height="449" alt="image" src="https://github.com/user-attachments/assets/38ad7172-1f15-4901-9411-52897eeb9522" />
 
+### FPGA Building Blocks
+
+An FPGA is built from several programmable hardware blocks:
+
+```text id="3b6xv7"
+                 FPGA
+                   │
+    ┌──────────────┼──────────────┐
+    │              │              │
+   CLBs          BRAMs          DSPs
+    │
+    ├── LUTs
+    ├── Flip-Flops
+    └── Carry Chains
+
+         + Routing Network +
+         + Clock Network   +
+         + IO Blocks       +
+```
+
+### Main Building Blocks
+
+#### 1. LUT (Look-Up Table)
+
+Implements combinational logic.
+
+Examples:
+
+* AND
+* OR
+* XOR
+* Multiplexers
+* ALU logic
+
+---
+
+#### 2. Flip-Flops (FFs)
+
+Implement sequential logic.
+
+Used for:
+
+* Registers
+* Counters
+* FSMs
+* Pipelines
+
+---
+
+#### 3. Carry Chains
+
+Dedicated arithmetic hardware.
+
+Used for:
+
+* Adders
+* Subtractors
+* Comparators
+* ALUs
+
+---
+
+#### 4. Routing Network
+
+Connects all FPGA resources.
+
+Contains:
+
+* Switch boxes
+* Connection boxes
+* Routing tracks
+
+---
+
+#### 5. BRAM
+
+Embedded memory blocks.
+
+Used for:
+
+* Instruction memory
+* Data memory
+* FIFOs
+
+---
+
+#### 6. DSP Blocks
+
+Dedicated arithmetic engines.
+
+Used for:
+
+* Multiplication
+* MAC operations
+* Filters
+
+---
+
+## ALU Example
+
+Suppose we have a simple ALU:
+
+```verilog
+module alu(
+    input  [3:0] a,
+    input  [3:0] b,
+    input  [1:0] op,
+    output reg [3:0] y
+);
+
+always @(*) begin
+    case(op)
+        2'b00: y = a + b;
+        2'b01: y = a - b;
+        2'b10: y = a & b;
+        2'b11: y = a | b;
+    endcase
+end
+
+endmodule
+```
+
+---
+
+## How FPGA Implements This ALU
+
+### Step 1: Logic Operations
+
+Operations:
+
+```text id="f8h15x"
+AND
+OR
+MUX
+```
+
+are mapped into LUTs.
+
+Example:
+
+```text id="pw9j4v"
+A ----\
+        LUT ---- Result
+B ----/
+```
+
+---
+
+### Step 2: Addition/Subtraction
+
+Addition:
+
+```text id="74xt4g"
+A + B
+```
+
+requires:
+
+* XOR
+* AND
+* Carry propagation
+
+FPGA uses:
+
+```text id="5n4rdz"
+LUT + Carry Chain
+```
+
+instead of implementing everything in LUTs.
+
+Example:
+
+```text id="x5up8e"
+Bit0 ---- Carry ---- Bit1 ---- Carry ---- Bit2
+```
+
+This is much faster.
+
+---
+
+### Step 3: Operation Selection
+
+The `case(op)` statement becomes a multiplexer.
+
+```text id="gm7m6w"
+Add Result ----\
+Sub Result -----\
+AND Result ------> MUX --> Y
+OR Result -------/
+```
+
+MUXes are implemented using LUTs.
+
+---
+
+### FPGA Resource Mapping
+
+| ALU Function               | FPGA Resource     |
+| -------------------------- | ----------------- |
+| AND                        | LUT               |
+| OR                         | LUT               |
+| XOR                        | LUT               |
+| Multiplexer                | LUT               |
+| Add                        | LUT + Carry Chain |
+| Subtract                   | LUT + Carry Chain |
+| Output Register (optional) | Flip-Flop         |
+
+---
+
+## ALU Inside a RISC-V CPU
+
+For a RISC-V ALU:
+
+```text id="d5bl5t"
+ADD
+SUB
+AND
+OR
+XOR
+SLT
+SLL
+SRL
+SRA
+```
+
+Resource usage:
+
+```text id="4b3o1r"
+          ALU
+           │
+   ┌───────┼────────┐
+   │       │        │
+ LUTs   Carry    FFs
+         Chain
+```
+
+---
 
 ### Application Mapping to FPGA Resources
 
