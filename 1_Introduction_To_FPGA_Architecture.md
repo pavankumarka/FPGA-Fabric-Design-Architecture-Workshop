@@ -136,4 +136,239 @@ Building blocks:
 * Power optimization
 * Advanced process nodes
 
+#### FPGA Fabric Architect focuses on:
+* LUT architecture
+* Logic clusters (CLBs)
+* Routing architecture
+* Switch boxes
+* Configuration memory
+* Bitstream architecture
+* CAD algorithms (placement/routing)
 
+### 1.4 Applications of FPGA:
+
+FPGAs are used wherever **flexibility, parallel processing, low latency, and hardware acceleration** are required.
+
+### 1. Embedded Systems
+
+* Industrial controllers
+* Smart sensors
+* Data acquisition systems
+* Real-time control systems
+
+**Examples:**
+
+* Motor control
+* Robotics
+* PLCs
+
+---
+
+### 2. RISC-V and SoC Prototyping
+
+* Soft RISC-V processors
+* Multi-core SoCs
+* Custom instruction development
+* Hardware/software co-design
+
+**Examples:**
+
+* PicoRV32
+* VexRiscv
+* Rocket Chip
+
+---
+
+### 3. Digital Signal Processing (DSP)
+
+* FIR filters
+* FFT processing
+* Audio processing
+* Video processing
+
+**Advantages:**
+
+* Massive parallelism
+* Low latency
+
+---
+
+### 4. Artificial Intelligence (AI) & Machine Learning (ML)
+
+* Neural network acceleration
+* Edge AI
+* Computer vision
+* Inferencing engines
+
+**Examples:**
+
+* CNN accelerators
+* Object detection
+* Face recognition
+
+---
+
+### 5. Networking & Data Centers
+
+* Packet processing
+* Load balancing
+* Network acceleration
+* SmartNICs
+
+**Examples:**
+
+* 5G infrastructure
+* High-speed routers
+* Cloud acceleration
+
+---
+
+### 6. Telecommunications
+
+* Software Defined Radio (SDR)
+* Baseband processing
+* 4G/5G systems
+* Signal modulation/demodulation
+
+---
+
+### 7. Aerospace & Defense
+
+* Radar systems
+* Sonar systems
+* Electronic warfare
+* Satellite communications
+
+**Why FPGA?**
+
+* Reliability
+* Real-time performance
+* Reconfigurability
+
+---
+
+### 8. Automotive
+
+* ADAS (Advanced Driver Assistance Systems)
+* Autonomous driving
+* Sensor fusion
+* Automotive networking
+
+---
+
+### 9. Video and Image Processing
+
+* Video encoding/decoding
+* Image enhancement
+* Surveillance systems
+* Machine vision
+
+---
+
+### 10. Security and Cryptography
+
+* AES acceleration
+* RSA acceleration
+* Secure boot
+* HSMs (Hardware Security Modules)
+
+**Relevant to your interests:**
+
+* Secure FPGA fabrics
+* FPGA Root of Trust
+* Cryptographic accelerators
+
+---
+
+### 11. Medical Electronics
+
+* MRI systems
+* Ultrasound machines
+* Medical imaging
+* Patient monitoring
+
+---
+
+### 12. Test and Measurement
+
+* Oscilloscopes
+* Logic analyzers
+* Protocol analyzers
+* RF test equipment
+
+---
+
+### 13. High-Performance Computing (HPC)
+
+* Scientific computing
+* Financial modeling
+* Genomics
+* Hardware acceleration
+
+---
+
+### 14. FPGA Fabric Research
+
+* Custom FPGA architectures
+* OpenFPGA
+* SOFA FPGA
+* FPGA CAD research
+
+This is where FPGA architects work.
+
+---
+
+### 15. Custom Hardware Accelerators
+
+* AI accelerators
+* Cryptography engines
+* Compression engines
+* Database accelerators
+
+---
+
+Understanding FPGA applications is important because **FPGA Fabric Architects design the fabric based on the needs of these workloads**. For example:
+
+* AI workloads → More DSPs and BRAMs
+* RISC-V SoCs → More logic and memory
+* Networking → Faster routing and high-speed I/O
+* Security → Secure bitstream and cryptographic blocks
+* DSP → Optimized DSP tiles and routing networks
+
+## FPGA Architecture
+
+<img width="533" height="449" alt="image" src="https://github.com/user-attachments/assets/38ad7172-1f15-4901-9411-52897eeb9522" />
+
+
+### Application Mapping to FPGA Resources
+
+| Application      | FPGA Resource Used |
+| ---------------- | ------------------ |
+| RISC-V CPU       | LUTs, FFs, BRAM    |
+| AI/ML            | DSPs, BRAM, LUTs   |
+| DSP Filters      | DSPs, BRAM         |
+| Networking       | LUTs, BRAM         |
+| Video Processing | DSPs, BRAM         |
+| Security         | LUTs, DSPs         |
+| Embedded Systems | LUTs, FFs, BRAM    |
+
+---
+
+### FPGA Architect's View
+
+```text
+Applications
+     ↓
+Requirements
+     ↓
+FPGA Resources
+     ↓
+LUTs
+BRAMs
+DSPs
+IOs
+Routing
+Clock Network
+     ↓
+FPGA Fabric Architecture
+```
