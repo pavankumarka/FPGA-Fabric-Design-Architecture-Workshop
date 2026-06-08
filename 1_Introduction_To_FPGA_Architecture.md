@@ -339,116 +339,381 @@ Understanding FPGA applications is important because **FPGA Fabric Architects de
 
 <img width="533" height="449" alt="image" src="https://github.com/user-attachments/assets/38ad7172-1f15-4901-9411-52897eeb9522" />
 
-### FPGA Building Blocks
 
-An FPGA is built from several programmable hardware blocks:
+An **FPGA (Field Programmable Gate Array)** is a programmable digital device consisting of configurable logic resources, programmable interconnects, memory blocks, DSP blocks, clock networks, I/O blocks, and configuration memory. After synthesis and implementation, a **bitstream** configures these resources to implement the desired hardware circuit.
 
-```text id="3b6xv7"
-                 FPGA
-                   │
-    ┌──────────────┼──────────────┐
-    │              │              │
-   CLBs          BRAMs          DSPs
-    │
-    ├── LUTs
-    ├── Flip-Flops
-    └── Carry Chains
+---
 
-         + Routing Network +
-         + Clock Network   +
-         + IO Blocks       +
+## Complete FPGA Architecture
+
+```text
++--------------------------------------------------------------------+
+|                        I/O BLOCKS (IOBs)                           |
++--------------------------------------------------------------------+
+
+      Routing        Routing        Routing        Routing
+
++-----------+     +---------+     +-----------+     +---------+
+|    CLB    |-----|  BRAM   |-----|    CLB    |-----|   DSP   |
++-----------+     +---------+     +-----------+     +---------+
+      |                                   |
+      |                                   |
+      |                               Carry Chain
+      |                                   |
++-----------+     +-----------+     +-----------+     +-----------+
+|    CLB    |-----|    CLB    |-----|    CLB    |-----|    CLB    |
++-----------+     +-----------+     +-----------+     +-----------+
+
+      Routing        Routing        Routing        Routing
+
++--------------------------------------------------------------------+
+|                     Global Clock Network                           |
++--------------------------------------------------------------------+
+
+Configuration SRAM distributed throughout the FPGA fabric
 ```
 
-### Main Building Blocks
+---
 
-#### 1. LUT (Look-Up Table)
+## FPGA Building Blocks
 
-Implements combinational logic.
+### 1. Configurable Logic Blocks (CLBs)
 
-Examples:
+CLBs are the primary logic resources of an FPGA.
 
-* AND
-* OR
-* XOR
-* Multiplexers
-* ALU logic
+#### Contains
+
+```text
+CLB
+├── LUTs
+├── Multiplexers (MUXes)
+├── Carry Chains
+└── Flip-Flops (FFs)
+```
+
+#### Used For
+
+* Combinational logic
+* Sequential logic
+* Arithmetic operations
+* State machines
+* CPU implementation
 
 ---
 
-#### 2. Flip-Flops (FFs)
+### 2. LUT (Look-Up Table)
 
-Implement sequential logic.
+A LUT implements combinational logic.
+
+Example functions:
+
+```text
+AND
+OR
+XOR
+NOT
+MUX
+Comparator
+```
+
+#### Location
+
+```text
+Inside CLBs
+```
+
+---
+
+### 3. Multiplexers (MUX)
+
+Used for selecting signals.
+
+Example:
+
+```text
+ADD Result ----\
+SUB Result -----\
+AND Result ------> MUX --> Output
+OR Result -------/
+```
+
+#### Location
+
+```text
+Inside CLBs
+```
+
+---
+
+### 4. Carry Chains
+
+Dedicated arithmetic hardware for fast carry propagation.
 
 Used for:
 
-* Registers
-* Counters
-* FSMs
-* Pipelines
+```text
+Adders
+Subtractors
+Comparators
+Counters
+ALUs
+```
+
+#### Location
+
+```text
+Inside CLBs
+Between vertically adjacent CLBs
+```
 
 ---
 
-#### 3. Carry Chains
+### 5. Flip-Flops (FFs)
 
-Dedicated arithmetic hardware.
+Used for sequential logic.
 
-Used for:
+Applications:
 
-* Adders
-* Subtractors
-* Comparators
-* ALUs
+```text
+Registers
+Counters
+FSMs
+Pipelines
+CPU Registers
+```
+
+#### Location
+
+```text
+Inside CLBs
+```
 
 ---
 
-#### 4. Routing Network
+<img width="510" height="432" alt="image" src="https://github.com/user-attachments/assets/4f569bac-f6a5-411d-b9e8-4f157ab106e1" />
+
+
+### 6. Programmable Routing Network
 
 Connects all FPGA resources.
 
+#### Contains
+
+```text
+Routing Network
+├── Horizontal Wires
+├── Vertical Wires
+├── Switch Boxes
+└── Connection Boxes
+```
+
+#### Purpose
+
+```text
+CLB ↔ CLB
+CLB ↔ BRAM
+CLB ↔ DSP
+CLB ↔ IOB
+```
+
+#### Location
+
+```text
+Between FPGA resources
+```
+
+---
+
+### 7. I/O Blocks (IOBs)
+
+Interface between FPGA and external world.
+
+Used for:
+
+```text
+GPIO
+UART
+SPI
+I2C
+DDR
+Ethernet
+```
+
+#### Location
+
+```text
+Around FPGA perimeter
+```
+
+---
+
+### 8. BRAM (Block RAM)
+
+Dedicated memory blocks.
+
+Used for:
+
+```text
+Instruction Memory
+Data Memory
+FIFO
+Buffer
+Cache
+```
+
+#### Location
+
+```text
+Dedicated BRAM columns
+```
+
+---
+
+### 9. DSP Blocks
+
+Dedicated arithmetic units.
+
+Used for:
+
+```text
+Multiplication
+MAC
+FIR Filters
+FFT
+AI/ML Acceleration
+```
+
+#### Location
+
+```text
+Dedicated DSP columns
+```
+
+---
+
+### 10. Clock Network
+
+Distributes clocks across FPGA.
+
 Contains:
 
-* Switch boxes
-* Connection boxes
-* Routing tracks
+```text
+Global Clock Trees
+Regional Clock Networks
+Clock Buffers
+PLLs
+```
+
+#### Purpose
+
+```text
+Low Skew
+High-Speed Operation
+```
+
+#### Location
+
+```text
+Across entire FPGA
+```
 
 ---
 
-#### 5. BRAM
+### 11. Configuration Memory
 
-Embedded memory blocks.
+Usually SRAM cells.
 
-Used for:
+Stores:
 
-* Instruction memory
-* Data memory
-* FIFOs
+```text
+LUT Contents
+Routing Configuration
+MUX Selections
+IO Settings
+BRAM Modes
+DSP Modes
+```
+
+#### Location
+
+```text
+Distributed throughout FPGA
+```
 
 ---
 
-#### 6. DSP Blocks
+## FPGA Programming Flow
 
-Dedicated arithmetic engines.
+### Step 1: Write RTL
 
-Used for:
+Example:
 
-* Multiplication
-* MAC operations
-* Filters
+```verilog
+assign y = a + b;
+```
+
+---
+
+### Step 2: Synthesis
+
+RTL is converted into FPGA resources.
+
+```text
+RTL
+ ↓
+LUTs
+Carry Chains
+MUXes
+FFs
+```
+
+---
+
+### Step 3: Place & Route
+
+Tool decides:
+
+```text
+Which CLB?
+Which Routing Path?
+Which BRAM?
+Which DSP?
+Which IOB?
+```
+
+---
+
+### Step 4: Bitstream Generation
+
+```text
+RTL
+ ↓
+Synthesis
+ ↓
+Place & Route
+ ↓
+Bitstream
+```
+
+---
+
+### Step 5: Configure FPGA
+
+```text
+Bitstream
+ ↓
+Configuration SRAM
+ ↓
+FPGA Fabric Configured
+```
 
 ---
 
 ## ALU Example
 
-Suppose we have a simple ALU:
+Consider a simple ALU:
 
 ```verilog
-module alu(
-    input  [3:0] a,
-    input  [3:0] b,
-    input  [1:0] op,
-    output reg [3:0] y
-);
-
 always @(*) begin
     case(op)
         2'b00: y = a + b;
@@ -457,155 +722,216 @@ always @(*) begin
         2'b11: y = a | b;
     endcase
 end
-
-endmodule
 ```
 
 ---
 
 ## How FPGA Implements This ALU
 
-### Step 1: Logic Operations
+### AND Operation
 
-Operations:
-
-```text id="f8h15x"
-AND
-OR
-MUX
+```verilog
+y = a & b;
 ```
 
-are mapped into LUTs.
+Implemented using:
 
-Example:
+```text
+LUT
+```
 
-```text id="pw9j4v"
-A ----\
-        LUT ---- Result
-B ----/
+Location:
+
+```text
+Inside CLB
 ```
 
 ---
 
-### Step 2: Addition/Subtraction
+### OR Operation
 
-Addition:
-
-```text id="74xt4g"
-A + B
+```verilog
+y = a | b;
 ```
 
-requires:
+Implemented using:
 
-* XOR
-* AND
-* Carry propagation
-
-FPGA uses:
-
-```text id="5n4rdz"
-LUT + Carry Chain
+```text
+LUT
 ```
 
-instead of implementing everything in LUTs.
+Location:
 
-Example:
-
-```text id="x5up8e"
-Bit0 ---- Carry ---- Bit1 ---- Carry ---- Bit2
+```text
+Inside CLB
 ```
-
-This is much faster.
 
 ---
 
-### Step 3: Operation Selection
+### Addition
+
+```verilog
+y = a + b;
+```
+
+Implemented using:
+
+```text
+LUTs + Carry Chains
+```
+
+Example:
+
+```text
+Bit0 → Carry → Bit1 → Carry → Bit2 → Carry → Bit3
+```
+
+Location:
+
+```text
+Inside and between CLBs
+```
+
+---
+
+### Subtraction
+
+```verilog
+y = a - b;
+```
+
+Implemented using:
+
+```text
+LUTs + Carry Chains
+```
+
+Location:
+
+```text
+Inside and between CLBs
+```
+
+---
+
+### Operation Selection
 
 The `case(op)` statement becomes a multiplexer.
 
-```text id="gm7m6w"
-Add Result ----\
-Sub Result -----\
-AND Result ------> MUX --> Y
+```text
+ADD Result ----\
+SUB Result -----\
+AND Result ------> MUX ---> Y
 OR Result -------/
 ```
 
-MUXes are implemented using LUTs.
-
----
-
-### FPGA Resource Mapping
-
-| ALU Function               | FPGA Resource     |
-| -------------------------- | ----------------- |
-| AND                        | LUT               |
-| OR                         | LUT               |
-| XOR                        | LUT               |
-| Multiplexer                | LUT               |
-| Add                        | LUT + Carry Chain |
-| Subtract                   | LUT + Carry Chain |
-| Output Register (optional) | Flip-Flop         |
-
----
-
-## ALU Inside a RISC-V CPU
-
-For a RISC-V ALU:
-
-```text id="d5bl5t"
-ADD
-SUB
-AND
-OR
-XOR
-SLT
-SLL
-SRL
-SRA
-```
-
-Resource usage:
-
-```text id="4b3o1r"
-          ALU
-           │
-   ┌───────┼────────┐
-   │       │        │
- LUTs   Carry    FFs
-         Chain
-```
-
----
-
-### Application Mapping to FPGA Resources
-
-| Application      | FPGA Resource Used |
-| ---------------- | ------------------ |
-| RISC-V CPU       | LUTs, FFs, BRAM    |
-| AI/ML            | DSPs, BRAM, LUTs   |
-| DSP Filters      | DSPs, BRAM         |
-| Networking       | LUTs, BRAM         |
-| Video Processing | DSPs, BRAM         |
-| Security         | LUTs, DSPs         |
-| Embedded Systems | LUTs, FFs, BRAM    |
-
----
-
-### FPGA Architect's View
+Location:
 
 ```text
-Applications
-     ↓
-Requirements
-     ↓
-FPGA Resources
-     ↓
-LUTs
-BRAMs
-DSPs
-IOs
-Routing
-Clock Network
-     ↓
-FPGA Fabric Architecture
+Inside CLB
 ```
+
+---
+
+### Registered ALU Output
+
+```verilog
+always @(posedge clk)
+    y <= result;
+```
+
+Implemented using:
+
+```text
+Flip-Flop
+```
+
+Location:
+
+```text
+Inside CLB
+```
+
+Clock supplied by:
+
+```text
+Global Clock Network
+```
+
+---
+
+## ALU Physical Mapping Inside FPGA
+
+```text
+FPGA Pin
+   │
+  IOB
+   │
+Routing Network
+   │
++------------------------------------------------+
+|                    CLB                         |
+|                                                |
+| A ----> LUT ----\                              |
+|                 MUX ----> FF ----> Output      |
+| B ----> LUT ----/                              |
+|                                                |
+|       Carry Chain (for ADD/SUB)                |
++------------------------------------------------+
+   │
+Routing Network
+   │
+ IOB
+   │
+FPGA Pin
+```
+
+---
+
+## If ALU Is Inside a RISC-V CPU
+
+```text
+RISC-V CPU
+│
+├── ALU
+├── Register File
+├── Control Unit
+├── Instruction Decoder
+└── Program Counter
+```
+
+FPGA resources used:
+
+| CPU Block           | FPGA Resource       |
+| ------------------- | ------------------- |
+| ALU                 | LUTs + Carry Chains |
+| Registers           | FFs                 |
+| Instruction Memory  | BRAM                |
+| Data Memory         | BRAM                |
+| Multiplier          | DSP                 |
+| Control Logic       | LUTs                |
+| Clocking            | Clock Network       |
+| External Interfaces | IOBs                |
+| Connectivity        | Routing Network     |
+
+---
+
+## Summary
+
+When an ALU is synthesized:
+
+| ALU Function                   | FPGA Block Used    |
+| ------------------------------ | ------------------ |
+| AND / OR / XOR                 | LUT                |
+| Add / Subtract                 | LUT + Carry Chain  |
+| Operation Select               | MUX                |
+| Register Output                | FF                 |
+| Signal Connections             | Routing Network    |
+| External Pins                  | IOB                |
+| Instruction/Data Storage (CPU) | BRAM               |
+| Multiplication                 | DSP                |
+| Clock Distribution             | Clock Network      |
+| Resource Configuration         | Configuration SRAM |
+
+The **bitstream programs the distributed configuration SRAM**, which configures every LUT, routing switch, MUX, FF, BRAM, DSP, and IOB to transform the generic FPGA fabric into the desired ALU or complete RISC-V processor.
+
