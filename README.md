@@ -19,4 +19,4 @@ In this 5days workshop we cover.
 4. [Introduction to SOFA FPGA Fabric IP]()
 5. [RISC-V Core on custom SOFA Fabric]()
 
-To conclude, at the end of this workshop we learnt how to use, plan, design, verify and analyze **Application specific FPGA**.
+To conclude workshop, we learnt how to use, plan, design, verify, adopt and analyze **Application specific FPGA**.
