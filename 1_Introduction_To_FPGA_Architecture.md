@@ -25,6 +25,7 @@ The idea behind all these programmable gate arrays is to
 
 ![Basys](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/pictures/1_FPGA_Basys.PNG)
 
+### 1.2 What is FPGA?
 - A "Field Programmable Gate Array" (FPGA) is an integrated circuit designed to be configured by a designer after manufacturing.
 - FPGA configuration is specified using a Hardware Description Language (HDL) such as Verilog or VHDL, similar to an ASIC (Application-Specific Integrated Circuit).
 - Logic design in an FPGA is different from an ASIC:
