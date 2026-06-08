@@ -1,4 +1,12 @@
-# FPGA-Fabric-Design-Architecture-Workshop
+# Course: FPGA Fabric Design Architecture
+
+What are the Goals of a FPGA Fabric design Architect? 
+
+- An FPGA Fabric Design Architect designs the programmable hardware fabric that FPGA users will later program with Verilog/VHDL.
+
+- The architect is not primarily building applications on an FPGA; they are designing the FPGA itself.
+
+## [FPGA-Fabric-Design-Architecture-Workshop](https://www.vlsisystemdesign.com/fpga/)
 FPGA Fabric Design Architecture Workshop by [VSD](https://www.vlsisystemdesign.com/)
 
 This workshop is a 5days paid cloud based program where we design, verify and analyze application specific FPGA, the lectures and lab access is private to individual. 
@@ -7,10 +15,9 @@ This workshop is a 5days paid cloud based program where we design, verify and an
 
 ## What topics do we need to cover as a [FPGA Fabric Design Architect?](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/FPGA-fabric-architect-goals.md)
 
-This progression takes you from FPGA user → FPGA Designer → FPGA architect → SOFA contributor → custom RISC-V FPGA
+This progression takes you from FPGA user → FPGA Designer → FPGA architect → RISCV design → SOFA contributor → custom RISC-V FPGA
 
-
-## Course Agenda 
+## [Course Agenda](https://www.vlsisystemdesign.com/fpga/) 
 
 In this 5days workshop we cover.
 1. [Introduction to FPGA, Vivado usage and Virtual Input/Output configurations](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_Introduction_To_FPGA_Architecture.md)
@@ -21,4 +28,6 @@ In this 5days workshop we cover.
 
 To conclude workshop, we learnt how to use, plan, design, verify, adopt and analyze **Application specific FPGA**.
 
-## How does the FPGA Fabric design workshop learnings align with my present skills [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
+## How does the FPGA Fabric design workshop learnings align with my present skills? [Future plan](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/Add-Ons/Allign-fpga-course-with-myskills.md)
+
+Credits - VSD and Team
