@@ -1063,4 +1063,9 @@ Click on I/O pins to conifgure (in later stage of the project)
 
 We will see how to map these switches to FPGA board for reset, as well as Virtual I/O reset to the FPGA which is unique feature Vivado will enable to remotely toggle reset (if the board is connected to the remote/ cloud PC)
 
+- After I/O mapping, save it as "constraints", the view looks like below,
+<img width="1810" height="788" alt="image" src="https://github.com/user-attachments/assets/db32dff0-c9a4-4997-bb4e-608ac708b6e1" />
+
+Constraints file, under sources will lokk like below,
+<img width="1861" height="790" alt="image" src="https://github.com/user-attachments/assets/de0b367a-febf-4373-92b4-0f43e253348e" />
 
