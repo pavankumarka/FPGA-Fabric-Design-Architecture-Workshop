@@ -991,11 +991,12 @@ Above diagram is a connection of multiple Multiplexers. a 2x1 mux uses 2^3 - 1 2
 | 6         | (2^6-1=63)          |
 
 Internally it can be viewed as:
-          MUX
-         /   \
-       MUX   MUX
-      / \    / \
-    MUX MUX MUX MUX
+        
+              MUX
+             /   \
+           MUX   MUX
+          / \    / \
+        MUX MUX MUX MUX
 
 Number of 2:1 MUXes:
 
@@ -1023,6 +1024,7 @@ Level 3 : 2
 Level 4 : 1
 ----------------
 Total   : 15
+
 8+4+2+1=15=2^4-1 
 
 ### FPGA Architect View
@@ -1050,8 +1052,9 @@ See F1 and F2 work.
   
   - x3 is drawn from one more interconnect (track the red line drawn over black )
   
-  - F1 and x3 is connected to next CLB which hS LUT.
+  - F1 and x3 is connected to next CLB which has LUT.
   
   - F2 is the final output that has F1 + x3 = x1 + x2 + x3.
 
-This is how an interconnect and CLB come together to make the FPGA  work. 
+This is how an interconnect and CLB come together to make the FPGA work. 
+
