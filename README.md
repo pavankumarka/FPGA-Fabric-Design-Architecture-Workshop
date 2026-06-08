@@ -5,26 +5,14 @@ This workshop is a 5days paid cloud based program where we design, verify and an
 1. [Lecture access](https://vsdiat.vlsisystemdesign.com/sign-in) 
 2. [lab access](https://www.remotespark.com/view/rdpdirect.html?server=159.223.55.198&port=3389&user=&pwd=&keyboard=1033&width=0&height=0&fullBrowser=Full%20browser&mapClipboard=on&fullScreen=Full%20screen&server_bpp=16&playSound=0&soundPref=0&mapClipboard=on&mapPrinter=on&mapDisk=on&startProgram=noapp&smoothfont=on&=Open&clear=Clear&delete=Delete&save=Save&connect=Connect&gateway=www.remotespark.com)
 
-## What do we cover in FPGA Fabric Design Architecture ?
-1. FPGA Fundamentals
-2. LUTs and CLBs
-3. Routing Architecture
-4. Configuration Memory
-5. FPGA CAD Flow
-6. OpenFPGA Framework
-7. SOFA FPGA Architecture
-8. Bitstream Generation
-9. RISC-V Soft Core Design
-10. RISC-V SoC on SOFA FPGA
-11. Custom FPGA Fabric Design
-12. Custom RISC-V Accelerator Integration
+## What topics do we need to cover as a [FPGA Fabric Design Architect?]()
 
 This progression takes you from FPGA user → FPGA architect → SOFA contributor → custom RISC-V FPGA
 
 
 ## Agenda Course
 
-In this course, for 5days we cover.
+In this 5days workshop we cover.
 1. [Introduction to FPGA, Vivado usage and Virtual Input/Output configurations](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_Introduction_To_FPGA_Architecture.md)
 2. [Open FPGA Introduction, VPR, VTR and compare results]()
 3. [Introduction to RISC-V core programming on Vivado]()
