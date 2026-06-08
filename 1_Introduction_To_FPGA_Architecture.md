@@ -1,7 +1,7 @@
 
 # Day1 Agenda:
 1. [FGPA Introduction](#1-fpga-introduction)
-2. FPGA Design Methodologies
+2. [FPGA Design Methodologies](#2-FPGA-Design-methodology)
 3. Advantages
 4. Architecture
 5. FPGA Programming (Verilog, Vivado)
@@ -164,7 +164,7 @@ FPGAs are used wherever **flexibility, parallel processing, low latency, and har
 
 ---
 
-### 2. RISC-V and SoC Prototyping
+### RISC-V and SoC Prototyping
 
 * Soft RISC-V processors
 * Multi-core SoCs
@@ -419,7 +419,7 @@ CLB
 
 ---
 
-### 2. LUT (Look-Up Table)
+### LUT (Look-Up Table)
 
 A LUT implements combinational logic.
 
@@ -1057,4 +1057,13 @@ See F1 and F2 work.
   - F2 is the final output that has F1 + x3 = x1 + x2 + x3.
 
 This is how an interconnect and CLB come together to make the FPGA work. 
+
+## FPGA Programming:
+
+1. The "'standard" Hardware description Language.
+2. Many Tool provide front-ends of both verilog/VHDL.
+3. High Level programming: C, C++, Python
+
+This workshop uses Verilog HDL -> Synthesizable bitstream -> program FPGA.
+
 
