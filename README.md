@@ -10,14 +10,14 @@ This workshop is a 5days paid cloud based program where we design, verify and an
 - 2. LUTs and CLBs
 - 3. Routing Architecture
 - 4. Configuration Memory
-- FPGA CAD Flow
-- OpenFPGA Framework
-- SOFA FPGA Architecture
-- Bitstream Generation
-RISC-V Soft Core Design
-RISC-V SoC on SOFA FPGA
-Custom FPGA Fabric Design
-Custom RISC-V Accelerator Integration
+- 5. FPGA CAD Flow
+- 6. OpenFPGA Framework
+- 7. SOFA FPGA Architecture
+- 8. Bitstream Generation
+- 9. RISC-V Soft Core Design
+10. RISC-V SoC on SOFA FPGA
+11. Custom FPGA Fabric Design
+12. Custom RISC-V Accelerator Integration
 
 This progression takes you from FPGA user → FPGA architect → SOFA contributor → custom RISC-V FPGA
 
