@@ -1099,6 +1099,11 @@ Resources analyzed:
 
 ---
 
+## Bitstream generation:
+
+<img width="1546" height="816" alt="image" src="https://github.com/user-attachments/assets/8a6e000f-418e-4dd6-bc0d-6836accab46e" />
+
+
 # Power Analysis
 
 Power analysis estimates:
@@ -1109,7 +1114,7 @@ Power analysis estimates:
 
 ## Power Report
 
-<img width="778" height="384" alt="image" src="https://github.com/user-attachments/assets/606e0804-d336-4ec0-b000-e4b85e7c67bb" />
+<img width="1227" height="352" alt="image" src="https://github.com/user-attachments/assets/b37d8208-a7b2-4c12-bc2d-e56c447b9ceb" />
 
 
 *Power analysis report generated after FPGA implementation.*
