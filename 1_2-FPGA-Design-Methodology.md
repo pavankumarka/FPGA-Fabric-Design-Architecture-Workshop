@@ -1080,3 +1080,48 @@ Let us take the simple design as in the picture above as an example to derive Ti
  
  1. Two Flip-Flops (D and Q2) are "Launch Flip-Flop" and "Capture Flip-flop" with logic gates in-between, both the flip-flops are connected with clock.
 
+# Device Utilization
+
+Vivado generates utilization reports showing FPGA resource consumption.
+
+Resources analyzed:
+- LUTs
+- Flip-Flops
+- I/O pins
+- BRAM
+
+## Utilization Report
+
+<img width="800" height="318" alt="image" src="https://github.com/user-attachments/assets/cb63ddd1-a63c-4668-802f-bbf1ef172858" />
+
+
+*FPGA resource utilization report after implementation.*
+
+---
+
+# Power Analysis
+
+Power analysis estimates:
+- Dynamic power
+- Static power
+- Clock power
+- Signal power
+
+## Power Report
+
+<img width="778" height="384" alt="image" src="https://github.com/user-attachments/assets/606e0804-d336-4ec0-b000-e4b85e7c67bb" />
+
+
+*Power analysis report generated after FPGA implementation.*
+
+---
+
+# Virtual Input/Output (VIO)
+
+Virtual Input/Output (VIO) allows internal FPGA signals to be monitored and controlled in real-time using Vivado Hardware Manager.
+
+Applications:
+- Internal debugging
+- Signal monitoring
+- Runtime testing
+
