@@ -505,6 +505,9 @@ Timimg analysis is done using *.rpt file form tseng_eg folder after running the 
 
 <img width="1874" height="833" alt="image" src="https://github.com/user-attachments/assets/76e56645-c803-4616-b044-3b2ce256ad83" />
 
+### Setup and hold time positive slack report:
+
+<img width="1652" height="817" alt="image" src="https://github.com/user-attachments/assets/2060e620-f1c4-441b-b5bc-b970116ada54" />
 
 
 Timing constraints were added using `.sdc` file.
