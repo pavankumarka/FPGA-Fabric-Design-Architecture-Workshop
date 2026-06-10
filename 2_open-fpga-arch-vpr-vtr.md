@@ -75,7 +75,7 @@ In above picture, we follow and reach result analysis, by starting in 2 stages, 
 
 ## Introduction to VPR
 
-VPR (Versatile Place and Route) is an open-source CAD tool used for:
+VPR (Versatile Place and Route) is an open-source CAD tool used for Net-list associated :
 
 1. Packing  
 2. Placement  
@@ -83,6 +83,34 @@ VPR (Versatile Place and Route) is an open-source CAD tool used for:
 4. Timing Analysis  
 
 ---
+
+## VPR stages:
+
+<img width="620" height="411" alt="image" src="https://github.com/user-attachments/assets/232aa99c-0fbb-4a6b-88f8-417bf4a88360" />
+
+<img width="543" height="387" alt="image" src="https://github.com/user-attachments/assets/4848a1ac-3b8b-4e70-8290-4914eb10d6c6" />
+
+<img width="1537" height="835" alt="image" src="https://github.com/user-attachments/assets/dd803ae0-88ac-459c-8b1c-3fcb15ad1e39" />
+
+#### VTR_ROOT: location of tool installed
+
+<img width="998" height="561" alt="image" src="https://github.com/user-attachments/assets/15151ad8-f7b1-424e-a826-43179a16438d" />
+
+<img width="989" height="563" alt="image" src="https://github.com/user-attachments/assets/0ab93f16-0649-4a30-b65b-f58273369eea" />
+
+#### Netlist generated technology mapping file
+
+<img width="1482" height="1016" alt="image" src="https://github.com/user-attachments/assets/e540f2ee-c5ca-407d-ae94-e57568b6bb98" />
+
+##### EArch is 40nm Technology mapping architecture driven file
+
+linking XML to Placement of FPGA Architecture.
+
+<img width="1188" height="839" alt="image" src="https://github.com/user-attachments/assets/78798610-f2fd-4280-8a93-44d77a4daf4a" />
+
+- EArch.xml = Architecture File
+- Blif = design / Module details
+- route-chan-width = Routing channel Architecture channel width. 
 
 # VPR Flow Command
 
@@ -144,6 +172,39 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif \
 --route_chan_width 100 \
 --disp on
 ```
+<img width="642" height="209" alt="image" src="https://github.com/user-attachments/assets/03cb25dd-fcb2-4f99-8710-ef0a2b624990" />
+
+### follow cmd prompt to run in command from your working directory of your choice.
+
+<img width="1549" height="673" alt="image" src="https://github.com/user-attachments/assets/46fe7bfb-f752-4011-a5a3-622617ebc0b4" />
+
+Initial Placement is done and paused (check cmd prompt)
+
+#### Further Zoom in to see what type of cell is that?
+
+<img width="1838" height="756" alt="image" src="https://github.com/user-attachments/assets/30a89342-4ce7-4b8f-90d5-e8ed85d4ca7f" />
+
+#### click on proceed to see following step:
+
+<img width="1849" height="826" alt="image" src="https://github.com/user-attachments/assets/23c8e49e-b4ca-482d-baf1-a28bd52e18b9" />
+
+#### further routing is shown above and entire structure of FPGA architecture is shown below
+
+<img width="1591" height="857" alt="image" src="https://github.com/user-attachments/assets/d083661d-23be-4cf1-9190-4d582b5ce166" />
+
+<img width="1531" height="865" alt="image" src="https://github.com/user-attachments/assets/e82891d2-5b42-4aa4-9b95-73a6f9766b45" />
+
+#### congestion percentage wrt color is shown below:
+
+<img width="1920" height="838" alt="image" src="https://github.com/user-attachments/assets/9625e4e9-b5d9-4c66-96ce-ddbcc1a2a43c" />
+
+#### critical path is shown below:
+
+<img width="1920" height="955" alt="image" src="https://github.com/user-attachments/assets/08a597b4-8a6d-49e7-aa5e-f0b67dfdbfa3" />
+
+### block critical view :
+
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/c7d04efa-be87-4a69-a5bb-28b1c51b8039" />
 
 ---
 
@@ -200,6 +261,7 @@ The critical path directly impacts FPGA performance.
 ## Critical Path Report
 
 <img width="940" height="711" alt="image" src="https://github.com/user-attachments/assets/44e6e49c-3f2b-412e-81ba-1414fa151c5b" />
+
 
 *Critical timing path generated during timing analysis.*
 
