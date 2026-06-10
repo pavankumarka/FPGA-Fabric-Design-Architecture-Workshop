@@ -48,6 +48,13 @@ The complete FPGA implementation flow followed was:
 8. Bitstream Generation
 9. Hardware Debugging using ILA
 
+
+<img width="1348" height="862" alt="image" src="https://github.com/user-attachments/assets/6f5be21a-2c01-43ba-884e-f3f7ed7cd550" />
+
+Take the Test bench for the same from the repo.
+
+Run on vivado.
+
 ---
 
 # RTL Simulation
@@ -94,6 +101,10 @@ Since Mythcore is significantly more complex than a simple counter, the generate
 
 *RTL schematic generated for Mythcore processor*
 
+<img width="1800" height="955" alt="image" src="https://github.com/user-attachments/assets/7e445d67-ca63-4c29-8faf-83e263e4a093" />
+
+*I/O plannintg
+
 ---
 
 # Package View
@@ -125,6 +136,11 @@ ILA was added to debug and monitor internal FPGA signals in real time.
 
 Instead of only viewing external outputs, ILA allows internal processor signals to be captured directly using Vivado Hardware Manager.
 
+
+### ILA addition: instead LED outputs:
+
+<img width="1634" height="954" alt="image" src="https://github.com/user-attachments/assets/1307c4e5-03ce-43a5-86cd-5c5762162523" />
+
 ---
 
 # ILA Instantiation
@@ -137,6 +153,11 @@ ila_0 your_instance_name (
     .probe1(out)
 );
 ```
+
+### maping ILA:
+
+<img width="1610" height="966" alt="image" src="https://github.com/user-attachments/assets/a5cf869d-05ec-4355-b3e4-279f1e57dbfa" />
+
 
 ---
 
@@ -195,6 +216,8 @@ The utilization report displayed FPGA resource consumption.
 - Flip-Flops
 - BRAM
 - IO Blocks
+
+<img width="1417" height="883" alt="image" src="https://github.com/user-attachments/assets/7acb5730-6228-4820-bb78-b19d00ef368e" />
 
 Compared to the counter design, Mythcore consumed significantly more FPGA resources due to processor complexity.
 
@@ -264,6 +287,8 @@ Compared to the counter design:
 - Resource utilization became much larger
 - Timing paths became more critical
 
+<img width="1766" height="852" alt="image" src="https://github.com/user-attachments/assets/99fce49c-bcf3-4a58-bff6-41794323a7c3" />
+
 ---
 
 ## FPGA Resource Usage
@@ -288,6 +313,7 @@ Without proper timing constraints:
 
 Constraints help FPGA tools optimize the design properly.
 
+
 ---
 
 # Conclusion
@@ -306,5 +332,10 @@ The work included:
 - Power analysis
 
 This experiment provided deeper understanding of how complex processor-based RTL designs are implemented, routed, timed, and debugged inside FPGA architectures.
+
+### FPGA observations / ILA Observations: Need FPGA to be connected
+
+![Uploading image.png…]()
+
 
 ---
