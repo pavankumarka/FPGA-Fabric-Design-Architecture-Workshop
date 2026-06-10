@@ -335,7 +335,8 @@ This experiment provided deeper understanding of how complex processor-based RTL
 
 ### FPGA observations / ILA Observations: Need FPGA to be connected
 
-![Uploading image.png…]()
+<img width="1859" height="844" alt="image" src="https://github.com/user-attachments/assets/1823d926-9930-4e5d-9095-9a305f60b218" />
+
 
 
 ---
