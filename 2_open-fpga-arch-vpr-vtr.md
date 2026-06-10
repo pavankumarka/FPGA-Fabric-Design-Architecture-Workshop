@@ -483,7 +483,29 @@ The critical path determines:
 
 ---
 
+# Analysis:
+
+<img width="1388" height="459" alt="image" src="https://github.com/user-attachments/assets/cdfe082a-9221-4818-ae75-ebfe706b28f8" />
+
+
+<img width="1578" height="783" alt="image" src="https://github.com/user-attachments/assets/b7c11032-bebf-45ac-a98d-305237ecba3f" />
+
+## output analysis:
+
+<img width="1888" height="782" alt="image" src="https://github.com/user-attachments/assets/71afc6b7-7d22-4a3c-b195-b0c12595fdb9" />
+
+
 # Timing Analysis using Constraints
+
+Timimg analysis is done using *.rpt file form tseng_eg folder after running the initial command .
+
+<img width="1915" height="833" alt="image" src="https://github.com/user-attachments/assets/a873adfe-cb64-48af-9336-7d02ec59465f" />
+
+### setup and hold time are voilated (all -ve results)
+
+<img width="1874" height="833" alt="image" src="https://github.com/user-attachments/assets/76e56645-c803-4616-b044-3b2ce256ad83" />
+
+
 
 Timing constraints were added using `.sdc` file.
 
@@ -524,6 +546,14 @@ create_clock -period 10 up_counter_clk
 set_input_delay -clock up_counter_clk -max 0 [get_ports {*}]
 set_output_delay -clock up_counter_clk -max 0 [get_ports {*}]
 ```
+
+## Match clk name, create *.sdc file and run highlighes command:
+
+<img width="1593" height="882" alt="image" src="https://github.com/user-attachments/assets/0c1a7ce7-b310-45be-a9f3-210010eba8c2" />
+
+### now that we can see SLACK is met:
+
+<img width="1804" height="838" alt="image" src="https://github.com/user-attachments/assets/170f2941-c0e7-42e1-abdf-6f5213b78026" />
 
 ---
 
