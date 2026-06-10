@@ -13,6 +13,8 @@ The complete flow from Verilog RTL to FPGA routing and timing analysis was explo
 
 # Introduction to OpenFPGA
 
+<img width="1029" height="710" alt="image" src="https://github.com/user-attachments/assets/e3cf4cd6-2e51-4755-ba39-8da174b7b836" />
+
 OpenFPGA is an open-source FPGA framework used for:
 - FPGA architecture exploration
 - Bitstream generation
@@ -20,6 +22,18 @@ OpenFPGA is an open-source FPGA framework used for:
 - CAD automation
 - Verification and testing
 
+### difference bwtween standard FPGA flow vs Open FPGA.
+
+<img width="1020" height="659" alt="image" src="https://github.com/user-attachments/assets/69ff8a0d-c0cf-4bbb-b166-811a6544dd61" />
+
+### need for custom FPGA:
+
+<img width="1014" height="731" alt="image" src="https://github.com/user-attachments/assets/b31dc025-4615-4196-93ba-56b15c6530b4" />
+
+- For max performance.
+- Reduce time to realize/simulate our own design.
+- Since custom FPGA is costly, better to go with open FPGA.
+  
 The framework supports:
 - Verilog-to-Bitstream flow
 - Custom FPGA architecture exploration
@@ -27,15 +41,41 @@ The framework supports:
 
 ---
 
-# Introduction to VPR
+#### Steps and types open FPGA supports
+
+<img width="1047" height="785" alt="image" src="https://github.com/user-attachments/assets/4c4b2921-4f6e-4f0c-92b9-e3fc7418d2e8" />
+
+In above picture, we follow and reach result analysis, by starting in 2 stages, one as intermediate stage (where first half of the files are available for VTR ), other one is starting from initial level (where all files are gereated/ added starting RTL) from begining of the flow.
+
+### open FPGA documentation: (Both initiatives and installation steps)
+
+<img width="1024" height="556" alt="image" src="https://github.com/user-attachments/assets/bfb782d3-ae50-47d3-9d31-2124128cc5e1" />
+
+### FPGA design - electrical representation using code
+
+<img width="735" height="462" alt="image" src="https://github.com/user-attachments/assets/a7779a59-0fc9-482b-9476-26526de9ab23" />
+
+## VTR - Verilog to Routing is the stage in the Open FPGA flow, using specific tool to generate the output.
+
+<img width="1086" height="674" alt="image" src="https://github.com/user-attachments/assets/7eae6423-c639-44c0-bfde-e928839bd80d" />
+
+### VTR tools: Automated (OdinII -> ABC -> VPR)
+
+<img width="635" height="466" alt="image" src="https://github.com/user-attachments/assets/fc9c40e9-0409-41a5-88e2-7abb2b12f355" />
+
+#### 2 stage flow: we follow in this workshop.
+
+<img width="664" height="454" alt="image" src="https://github.com/user-attachments/assets/6085bfff-38f7-476a-8105-6ed6f56b24df" />
+
+#### steps to follow:
+
+<img width="1207" height="790" alt="image" src="https://github.com/user-attachments/assets/d6e09c94-5bcb-4fdd-8a7a-f8f8a95aa442" />
+
+<img width="587" height="413" alt="image" src="https://github.com/user-attachments/assets/0fc1310e-8e0f-4e9c-9557-d2f64b4e1571" />
+
+## Introduction to VPR
 
 VPR (Versatile Place and Route) is an open-source CAD tool used for:
-- Packing
-- Placement
-- Routing
-- Timing Analysis
-
-The VPR flow consists of:
 
 1. Packing  
 2. Placement  
