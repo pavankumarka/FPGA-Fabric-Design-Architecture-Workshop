@@ -1186,6 +1186,8 @@ or directly jump to program bitstream.
 
 Now that we open Hardware Manager, program bitstream, we use following option to toggle rst,
 
+NOTE: only if FPGA is connected to remote PC/local PC, then we can connect and view FPGA, here for understanding purpose, we have added FPGA view
+
 <img width="925" height="457" alt="image" src="https://github.com/user-attachments/assets/c25a6015-b947-4132-a79f-93b06346fa09" />
 
 once rst = 0, the counter starts blinking led's / increment count / or we can also see count instead of LED blinking.
