@@ -15,6 +15,16 @@ The complete flow involved:
 
 The design used for experimentation was a **4-bit Up Counter**.
 
+<img width="1514" height="988" alt="image" src="https://github.com/user-attachments/assets/a3fbe41d-05d2-4ff1-bbd6-f49a059837e5" />
+
+### Documentation:
+
+<img width="1010" height="369" alt="image" src="https://github.com/user-attachments/assets/937d4678-88c5-47b3-8988-b24863bdb3e3" />
+
+##SOFA: 130nm
+
+<img width="1299" height="683" alt="image" src="https://github.com/user-attachments/assets/cf3a3ae0-eb5a-4734-bf1f-f9774b689049" />
+
 ---
 
 # Introduction to SOFA FPGA Fabric
@@ -33,11 +43,16 @@ The architecture used:
 - 2304 Flip-Flops
 - 1152 Soft Adders
 
+<img width="1313" height="838" alt="image" src="https://github.com/user-attachments/assets/0cb64c21-080d-4c8a-b51f-89df17eff2e6" />
+
 ---
 
 # OpenFPGA Flow Execution
 
 ## Running OpenFPGA
+
+<img width="1374" height="873" alt="image" src="https://github.com/user-attachments/assets/ee75e671-6a35-4792-8001-73f37fefc32c" />
+
 
 The OpenFPGA framework was executed to generate the FPGA fabric and run the counter design on the custom FPGA architecture.
 
@@ -46,6 +61,38 @@ The OpenFPGA framework was executed to generate the FPGA fabric and run the coun
 ```bash
 make runOpenFPGA
 ```
+### directory info and files used:
+
+<img width="1835" height="794" alt="image" src="https://github.com/user-attachments/assets/3e3a1782-d3ef-4685-a53e-2242f7306980" />
+
+
+<img width="1690" height="839" alt="image" src="https://github.com/user-attachments/assets/1916f3ba-86da-4384-97a3-1d437647df60" />
+
+
+<img width="1705" height="683" alt="image" src="https://github.com/user-attachments/assets/7db6d839-982f-498d-bbd6-1488ec1f945a" />
+
+
+<img width="1703" height="791" alt="image" src="https://github.com/user-attachments/assets/c5c5795a-6f2f-49ca-a012-3f2fc7795cf3" />
+
+
+<img width="1685" height="691" alt="image" src="https://github.com/user-attachments/assets/5b6c238b-6607-4bb1-9778-729e0a43db10" />
+
+
+<img width="1700" height="821" alt="image" src="https://github.com/user-attachments/assets/5a30a62e-af69-4f6d-909c-537c4b78ca54" />
+
+
+### Open file:
+
+<img width="1689" height="449" alt="image" src="https://github.com/user-attachments/assets/7594a6ea-1973-4009-b11a-43e98297482c" />
+
+### Changes in file: to obtain timing analysis
+
+<img width="1723" height="803" alt="image" src="https://github.com/user-attachments/assets/1093607e-203e-443d-b041-5facaf945519" />
+
+Yosys fil location:
+
+<img width="1710" height="197" alt="image" src="https://github.com/user-attachments/assets/b4d11ff1-bef6-4c04-a6ac-04997cd43b32" />
+
 
 ---
 
@@ -204,6 +251,9 @@ After adding proper constraints:
 
 *Setup timing analysis report after implementation.*
 
+
+<img width="1647" height="814" alt="image" src="https://github.com/user-attachments/assets/97e338db-e04f-451e-83e5-df660c1d21fc" />
+
 ---
 
 ## Hold Timing Report
@@ -252,6 +302,17 @@ The following important files were generated during the OpenFPGA flow:
 | `report_timing.hold.rpt` | Hold timing report |
 | `vpr_stdout.log` | VPR execution log |
 | `power.rpt` | Power analysis report |
+
+
+<img width="1846" height="867" alt="image" src="https://github.com/user-attachments/assets/ae9c88fe-81e9-4449-b7a2-30b348b63bc8" />
+
+### How to run commnd: 
+<img width="1348" height="574" alt="image" src="https://github.com/user-attachments/assets/c6b575a5-ece0-4da5-baed-2b2aa9545ff0" />
+
+
+#### Power analysis using SOFA VTR:
+
+<img width="1689" height="813" alt="image" src="https://github.com/user-attachments/assets/941cc0e5-a48c-42d7-a2fb-f59addf4a4b2" />
 
 ---
 
