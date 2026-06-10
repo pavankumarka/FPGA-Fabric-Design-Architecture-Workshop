@@ -1121,12 +1121,83 @@ Power analysis estimates:
 
 ---
 
-# Virtual Input/Output (VIO)
+## Timinig analysis (Post Bitstream/FPGA implenetation)
+
+<img width="1514" height="401" alt="image" src="https://github.com/user-attachments/assets/db1d8d05-a8a9-4478-9889-9fae70dcc71d" />
+
+Now, right click on any timing report path, and clcik on view detailed report to get following details to obtain individual path timing details
+
+<img width="1484" height="720" alt="image" src="https://github.com/user-attachments/assets/5b2f4228-3891-45be-a9d8-df60027df119" />
+
+scrrlow further to get further details:
+
+<img width="1200" height="796" alt="image" src="https://github.com/user-attachments/assets/d27e23c9-bb85-4a16-8bd7-62a43d084178" />
+
+
+*Timing analysis report generated after FPGA implementation.*
+
+---
+
+In later stages we will focus oon generating simiiar Area, poweraa and Time analysis using VPT and VTR tools
+
+## Virtual Input/Output (VIO)
 
 Virtual Input/Output (VIO) allows internal FPGA signals to be monitored and controlled in real-time using Vivado Hardware Manager.
 
-Applications:
+<img width="1117" height="787" alt="image" src="https://github.com/user-attachments/assets/c09300a9-0963-4d98-b59f-8f2ef580059b" />
+
+### steps to add VIO:
+
+<img width="1046" height="710" alt="image" src="https://github.com/user-attachments/assets/126bb628-5cba-4774-aebd-ef76d8d01d92" />
+
+1. Add counter_clk_div_vio.v file to the project. under IP catalog, add input probes as 2 (probe_in0 1bit for div_clk , probe_in1 4bits for counter_out, output probe as 1, probe_out0 is 1bit as same as rst.
+
+<img width="1502" height="797" alt="image" src="https://github.com/user-attachments/assets/f3d1ff31-429e-4a8b-9518-d8e524ec31bc" />
+
+2. Edit veo, a verilog file (other one is VHDL) to get VIO module to map it to main module
+
+<img width="1326" height="819" alt="image" src="https://github.com/user-attachments/assets/97762862-7f20-4c4d-92c4-d8ac43e65a67" />
+
+<img width="583" height="555" alt="image" src="https://github.com/user-attachments/assets/2691c1a9-f6ac-4a3d-af68-41e32c6ab1b2" />
+
+run elaboration to get following report,
+
+<img width="1708" height="873" alt="image" src="https://github.com/user-attachments/assets/e414e0b3-f206-41d7-8149-b1b7e62c6644" />
+
+
+### Steps covered:
+
+<img width="1102" height="749" alt="image" src="https://github.com/user-attachments/assets/e7d434c8-020d-4448-ac99-0b4060bcde0d" />
+
+<img width="1085" height="645" alt="image" src="https://github.com/user-attachments/assets/058c11d0-51bb-4abd-88a6-cd396eb4447f" />
+
+There is only 1pin i.e clk pin to add pin.
+
+<img width="1895" height="807" alt="image" src="https://github.com/user-attachments/assets/ce722443-e0ad-41fd-b65f-e3a6ba28f72d" />
+
+Now we have done with elobration, assigned pin synth, generate bitstream, program the bitstream
+or directly jump to program bitstream.
+
+<img width="1908" height="1037" alt="image" src="https://github.com/user-attachments/assets/d972dbb0-aa9a-47b9-93cc-64c567cc2a90" />
+
+### Schematic view
+
+<img width="1630" height="830" alt="image" src="https://github.com/user-attachments/assets/7c7caf10-81b3-429a-8c12-98d886ac02e8" />
+
+Now that we open Hardware Manager, program bitstream, we use following option to toggle rst,
+
+<img width="925" height="457" alt="image" src="https://github.com/user-attachments/assets/c25a6015-b947-4132-a79f-93b06346fa09" />
+
+once rst = 0, the counter starts blinking led's / increment count / or we can also see count instead of LED blinking.
+
+<img width="1237" height="638" alt="image" src="https://github.com/user-attachments/assets/4999ec31-7495-497e-8bd0-4f67843dc1eb" />
+
+This is how VIO is used to gather output status from the main module and send virtual reset (rst) to the main module.
+
+### Applications:
 - Internal debugging
 - Signal monitoring
 - Runtime testing
+
+
 
