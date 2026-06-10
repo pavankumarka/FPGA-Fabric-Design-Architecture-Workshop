@@ -695,6 +695,11 @@ $VTR_ROOT/vtr_flow/arch/timing/k6_frac_N10_mem32K_40nm.xml \
 -route_chan_width 100
 ```
 
+<img width="870" height="195" alt="image" src="https://github.com/user-attachments/assets/712b207e-860f-4ba9-be44-ca62f5b908f9" />
+
+
+<img width="797" height="619" alt="image" src="https://github.com/user-attachments/assets/5c43024f-8566-49b9-bf1a-bc2a38cc5da5" />
+
 ---
 
 ## stdout.log report
@@ -770,4 +775,28 @@ $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \
 counter.pre-vpr.blif \
 --gen_post_synthesis_netlist on
 ```
+
+### Summary of observations:
+
+<img width="655" height="511" alt="image" src="https://github.com/user-attachments/assets/6a765be4-1a72-460f-8407-f0d35186d344" />
+
+<img width="602" height="536" alt="image" src="https://github.com/user-attachments/assets/39b98ce0-af94-48f0-aae4-588dd6c7b346" />
+
+<img width="543" height="498" alt="image" src="https://github.com/user-attachments/assets/14490c4b-713b-44f0-9581-028593d5604c" />
+
+<img width="679" height="328" alt="image" src="https://github.com/user-attachments/assets/fd0aa3a2-3fe1-4f9f-b9a4-883a747a1ae0" />
+
+<img width="707" height="522" alt="image" src="https://github.com/user-attachments/assets/903481ca-492f-441c-9a94-8c20604d0e85" />
+
+### Area analysis
+
+<img width="697" height="537" alt="image" src="https://github.com/user-attachments/assets/5fe3bbcc-a556-4ac2-a9d0-02e5ceea199f" />
+
+### Basys3 vs VTR
+
+<img width="650" height="530" alt="image" src="https://github.com/user-attachments/assets/1c61af9e-f3cd-40eb-b7ac-571f7758e641" />
+
+<img width="679" height="324" alt="image" src="https://github.com/user-attachments/assets/79c47174-6417-451f-8658-88d5f185a469" />
+
+
 
