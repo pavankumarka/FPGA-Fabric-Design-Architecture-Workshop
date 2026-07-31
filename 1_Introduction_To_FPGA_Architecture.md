@@ -1067,3 +1067,169 @@ This is how an interconnect and CLB come together to make the FPGA work.
 This workshop uses Verilog HDL -> Synthesizable bitstream -> program FPGA.
 
 Next Topic: 2. [FPGA Design methodology](https://github.com/pavankumarka/FPGA-Fabric-Design-Architecture-Workshop/blob/main/1_2-FPGA-Design-Methodology.md)
+
+## Complete FPGA vs ASIC Flow
+
+| #  | Design Stage            | FPGA Flow      | ASIC Flow | Input                 | Output                    | Verification / Expected Result | Common Tools                            |
+| -- | ----------------------- | -------------- | --------- | --------------------- | ------------------------- | ------------------------------ | --------------------------------------- |
+| 1  | Requirements            | ✔              | ✔         | Product specification | Functional specification  | Requirements complete          | DOORS, Excel, Jira                      |
+| 2  | Architecture            | ✔              | ✔         | Specification         | Block diagram, interfaces | Architecture review            | Draw.io, Visio                          |
+| 3  | Microarchitecture       | ✔              | ✔         | Architecture          | Registers, FSMs, datapath | Design review                  | Documentation                           |
+| 4  | RTL Coding              | ✔              | ✔         | Microarchitecture     | Verilog/SystemVerilog RTL | Lint clean                     | VS Code, Vim                            |
+| 5  | Linting                 | ✔              | ✔         | RTL                   | Clean RTL report          | No syntax/style issues         | Verilator, SpyGlass, Ascent Lint        |
+| 6  | CDC/RDC                 | Optional       | ✔         | RTL                   | CDC report                | No unsafe crossings            | SpyGlass CDC, Questa CDC                |
+| 7  | Behavioral Simulation   | ✔              | ✔         | RTL + Testbench       | Waveforms                 | Functional correctness         | Questa, VCS, Xcelium, Verilator         |
+| 8  | Functional Coverage     | Optional       | ✔         | Simulation            | Coverage database         | Coverage goals met             | VCS, Questa                             |
+| 9  | Formal Verification     | Optional       | ✔         | RTL                   | Property proofs           | Assertions proven              | JasperGold, VC Formal                   |
+| 10 | Logic Synthesis         | ✔              | ✔         | RTL + Constraints     | Gate-level netlist        | Timing/area estimates          | Vivado, Quartus, Yosys, Design Compiler |
+| 11 | Gate-Level Simulation   | Optional       | ✔         | Netlist + Testbench   | Waveforms                 | RTL vs netlist equivalence     | Questa, VCS                             |
+| 12 | Equivalence Checking    | Usually No     | ✔         | RTL + Netlist         | LEC report                | Netlist equals RTL             | Conformal, Formality                    |
+| 13 | Constraints             | ✔              | ✔         | Timing requirements   | XDC/SDC                   | Constraints validated          | Vivado, PrimeTime                       |
+| 14 | Floorplanning           | Automatic      | ✔         | Netlist               | Floorplan                 | Macro placement approved       | OpenROAD, Innovus                       |
+| 15 | Power Planning          | Automatic      | ✔         | Floorplan             | Power grid                | IR-drop acceptable             | Innovus, OpenROAD                       |
+| 16 | Placement               | ✔              | ✔         | Netlist               | Placed design             | Congestion acceptable          | Vivado, Quartus, OpenROAD               |
+| 17 | Clock Tree Synthesis    | Automatic      | ✔         | Placed design         | Clock network             | Clock skew within limits       | OpenROAD, Innovus                       |
+| 18 | Routing                 | ✔              | ✔         | Placed design         | Routed layout             | Routing complete               | Vivado, Quartus, OpenROAD               |
+| 19 | Static Timing Analysis  | ✔              | ✔         | Routed design         | Timing report             | Setup/Hold met                 | Vivado, OpenSTA, PrimeTime              |
+| 20 | Power Analysis          | Limited        | ✔         | Activity + Layout     | Power report              | Power budget met               | PrimePower, Voltus                      |
+| 21 | Signal Integrity        | Rare           | ✔         | Routed layout         | SI report                 | Crosstalk acceptable           | PrimeTime SI                            |
+| 22 | IR Drop / EM            | No             | ✔         | Power network         | Reliability report        | EM/IR within limits            | RedHawk, Voltus                         |
+| 23 | DRC                     | FPGA internal  | ✔         | GDS                   | DRC report                | Zero violations                | Magic, Calibre                          |
+| 24 | LVS                     | Not required   | ✔         | Layout + Schematic    | LVS report                | Layout matches schematic       | Netgen, Calibre                         |
+| 25 | Parasitic Extraction    | No             | ✔         | Routed layout         | SPEF/SPICE                | RC extracted                   | Magic, OpenRCX, StarRC                  |
+| 26 | Post-layout Simulation  | No             | ✔         | Extracted netlist     | Timing waveforms          | Works with parasitics          | ngspice, Spectre                        |
+| 27 | Sign-off STA            | Partial        | ✔         | SPEF + Netlist        | Final timing              | Timing closed                  | PrimeTime                               |
+| 28 | Bitstream Generation    | ✔              | No        | Implemented design    | .bit/.bin                 | Ready for FPGA                 | Vivado, Quartus                         |
+| 29 | GDSII Generation        | No             | ✔         | Routed layout         | GDSII                     | Tapeout database               | OpenROAD, Innovus                       |
+| 30 | Tapeout                 | No             | ✔         | GDSII                 | Foundry masks             | Manufacturing starts           | TSMC, Samsung, Intel Foundry            |
+| 31 | FPGA Programming        | ✔              | No        | Bitstream             | Running FPGA              | Hardware functional            | JTAG, Vivado Hardware Manager           |
+| 32 | Silicon Bring-up        | Prototype only | ✔         | Fabricated chip       | Working silicon           | First silicon validation       | Lab equipment                           |
+| 33 | Post-Silicon Validation | Limited        | ✔         | Silicon               | Bug reports               | Meets specifications           | Oscilloscopes, Logic analyzers          |
+
+## FPGA Flow simplified:
+```
+Specification
+      │
+Architecture
+      │
+RTL Coding
+      │
+    Lint
+      │
+Behavioral Simulation
+      │
+Synthesis
+      │
+Implementation
+(Place + Route)
+      │
+Timing Analysis
+      │
+Bitstream Generation
+      │
+Program FPGA
+      │
+Hardware Debug
+```
+
+
+## ASIC flow (detailed)
+
+```
+Specification
+      │
+Architecture
+      │
+Microarchitecture
+      │
+     RTL
+      │
+    Lint
+      │
+   CDC/RDC
+      │
+Simulation
+      │
+Coverage
+      │
+Formal Verification
+      │
+Synthesis
+      │
+     LEC
+      │
+Floorplan
+      │
+Power Planning
+      │
+Placement
+      │
+     CTS
+      │
+Routing
+      │
+     STA
+      │
+Power Analysis
+      │
+Signal Integrity
+      │
+     DRC
+      │
+     LVS
+      │
+     PEX
+      │
+Post-layout Simulation
+      │
+   Sign-off STA
+      │
+    GDSII
+      │
+    Tapeout
+      │
+   Fabrication
+      │
+   Packaging
+      │
+   ATE Testing
+      │
+  Silicon Bring-up
+      │
+Post-Silicon Validation
+```
+
+## unique steps: FPGA vs ASIC
+
+| FPGA Only            | ASIC Only               |
+| -------------------- | ----------------------- |
+| Bitstream generation | Floorplanning           |
+| FPGA programming     | Power planning          |
+| FPGA hardware debug  | Clock Tree Synthesis    |
+| Reconfiguration      | DRC                     |
+|                      | LVS                     |
+|                      | PEX                     |
+|                      | Sign-off STA            |
+|                      | GDSII                   |
+|                      | Tapeout                 |
+|                      | Fabrication             |
+|                      | Packaging               |
+|                      | ATE testing             |
+|                      | Post-silicon validation |
+
+
+
+## mapping to VLSI learning:
+
+| Course / Skill             | Corresponding Flow Stage                    |
+| -------------------------- | ------------------------------------------- |
+| CMOS Circuit Design        | Standard cells, transistor-level design     |
+| Verilog/SystemVerilog      | RTL Coding                                  |
+| FPGA Fabric                | RTL → Synthesis → Place & Route → Bitstream |
+| SRAM Project               | SRAM macro generation and integration       |
+| Physical Verification (PV) | DRC, LVS, PEX, Sign-off                     |
+| Static Timing Analysis     | STA                                         |
+| OpenLane/OpenROAD          | ASIC Physical Design                        |
+| Magic                      | Layout editing, DRC, PEX                    |
+| Netgen                     | LVS                                         |
+| ngspice                    | Circuit and post-layout simulation          |
